@@ -14,7 +14,7 @@ def warrantyInsure(): ##Is the device insured or under warranty
         print("I did not understand your input, please try again.")
         warrantyInsure()
 
-def problemQue():
+def problemQue(): ##Does this device actually have problems?
     ans = input("Does your device have any problems?")
     if ans == "yes" or "Yes" or "y" or "Y":
         print("Sorry, this program is primitive; we will now loop you back to the beginning and hope we can solve this.")
