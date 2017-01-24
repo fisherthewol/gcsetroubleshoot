@@ -22,3 +22,15 @@ def problemQue(): ##Does this device actually have problems?
     elif ans == "no" or "No" or "n" or "N":
         print("Thanks for using this program; see you around!")
     else:
+        print("I did not understand your input, please try again.")
+        problemQue()
+
+def infection(): ##Is the device infected?
+    ans = input("Is your device infected?")
+    if ans == "yes" or "Yes" or "y" or "Y":
+        backUp()
+    elif ans == "no" or "No" or "n" or "N":
+        print problemQue()
+    else:
+        print("I did not understand your input, please try again.")
+        infection()
