@@ -35,7 +35,7 @@ def backUp():
         elif os == "andy":
             print("Go to settings, scroll and enter Backup and Settings, select Factory Data Reset and follow the prompts.")
         elif os == "bill":
-            print("See https://support.microsoft.com/en-us/help/10666/windows-phone-reset-my-phone \n"),
+            print("See https://support.microsoft.com/en-us/help/10666/windows-phone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow the prompts.")
     elif ans == "no" or "No" or "n" or "N":
         problemQue()
