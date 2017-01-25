@@ -25,12 +25,24 @@ def problemQue(): ##Does this device actually have problems?
         print("I did not understand your input, please try again.")
         problemQue()
 
+def backUp():
+    ans = input("Have you backed up your device recently?")
+    if ans == "yes" or "Yes" or "y" or "Y":
+        print("We suggest you fully reset your device;")
+        if deviceOS() == steve:
+            print("Plug your Device into 
+    elif ans == "no" or "No" or "n" or "N":
+        problemQue()
+    else:
+        print("I did not understand your input, please try again.")
+        backup()
+
 def infection(): ##Is the device infected?
     ans = input("Is your device infected?")
     if ans == "yes" or "Yes" or "y" or "Y":
         backUp()
     elif ans == "no" or "No" or "n" or "N":
-        print problemQue()
+        problemQue()
     else:
         print("I did not understand your input, please try again.")
         infection()
