@@ -25,16 +25,15 @@ def problemQue(): ##Does this device actually have problems?
         print("I did not understand your input, please try again.")
         problemQue()
 
-def backUp():
+def backUp(x):##In main.py, x = deviceOS()
     ans = input("Have you backed up your device recently?")
     if ans == "yes" or "Yes" or "y" or "Y":
         print("We suggest you fully reset your device;")
-        os = deviceOS()
-        if os() == "steve":
+        if x == "steve":
             print("Plug your Device into your Computer, open itunes and reset it from there.")
-        elif os == "andy":
+        elif x == "andy":
             print("Go to settings, scroll and enter Backup and Settings, select Factory Data Reset and follow the prompts.")
-        elif os == "bill":
+        elif x == "bill":
             print("See https://support.microsoft.com/en-us/help/10666/windows-phone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow the prompts.")
     elif ans == "no" or "No" or "n" or "N":
