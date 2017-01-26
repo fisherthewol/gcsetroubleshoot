@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__  =  0.11
+__version__  =  0.20
 ##This is a file for question functions; allows for //modularity//
 def warrantyInsure(): ##Is the device insured or under warranty
     ans = input("Are you under Warranty or Insured with this device?")
@@ -36,8 +36,10 @@ def backUp(x):##In main.py, x = deviceOS()
         elif x == "bill":
             print("See https://support.microsoft.com/en-us/help/10666/windows-phone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow the prompts.")
+        print("Thanks for using this program; see you around!")
     elif ans == "no" or "No" or "n" or "N":
-        problemQue()
+        print("We recommend you see a phone repair shop, especially a virus specialist.")
+        print("Thanks for using this program; see you around!")
     else:
         print("I did not understand your input, please try again.")
         backup()
