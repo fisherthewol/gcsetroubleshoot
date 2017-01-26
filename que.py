@@ -29,7 +29,7 @@ def problemQue():  # Does this device actually have problems?
         print("I did not understand your input, please try again.")
         problemQue()
 
-        
+
 def backUp(x):  # In main.py, x = deviceOS()
     ans = input("Have you backed up your device recently?")
     if ans == "yes" or "Yes" or "y" or "Y":
@@ -60,3 +60,17 @@ def infection():  # Is the device infected?
         print("I did not understand your input, please try again.")
         infection()
 
+
+def screenBroke():
+    ans == input("Is the screen/screen glass broken?")
+    if ans == "yes" or "Yes" or "y" or "Y":
+        return true
+    elif ans == "no" or "No" or "n" or "N":
+        return false
+    else:
+        print("I did not understand your input, please try again.")
+        screenBroke()
+
+
+def isScreenOn():
+    
