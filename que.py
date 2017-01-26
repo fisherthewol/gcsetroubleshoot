@@ -4,7 +4,8 @@ __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
 __version__  =  0.20
 ##This is a file for question functions; allows for //modularity//
-def warrantyInsure(): ##Is the device insured or under warranty
+
+def warrantyInsure(): ##Is the device insured or under warranty?
     ans = input("Are you under Warranty or Insured with this device?")
     if ans == "yes" or "Yes" or "y" or "Y":
         return true
@@ -47,9 +48,9 @@ def backUp(x):##In main.py, x = deviceOS()
 def infection(): ##Is the device infected?
     ans = input("Is your device infected?")
     if ans == "yes" or "Yes" or "y" or "Y":
-        backUp()
+        return true
     elif ans == "no" or "No" or "n" or "N":
-        problemQue()
+        return false
     else:
         print("I did not understand your input, please try again.")
         infection()
