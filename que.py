@@ -6,6 +6,20 @@ __version__ = 0.20
 # This is a file for question functions; allows for //modularity//
 
 
+def deviceOS():
+    ans = str.lower(str(input("What OS does your phone use?")))
+    if ans == "ios" or "apple" or "iphone":
+        return "steve"
+    elif ans == "samsung" or "android" or "htc" or "lg":
+        return "andy"
+    elif ans == "nokia" or "windows" or "lumia":
+        return "bill"
+    else:
+        print("I did not understand your input, please try again.")
+        deviceOS()
+
+
+
 def warrantyInsure():  # Is the device insured or under warranty?
     ans = input("Are you under Warranty or Insured with this device?")
     if ans == "yes" or "Yes" or "y" or "Y":
@@ -61,7 +75,7 @@ def infection():  # Is the device infected?
         infection()
 
 
-def screenBroke():
+def screenBroke():  # Is the screen broken?
     ans == input("Is the screen/screen glass broken?")
     if ans == "yes" or "Yes" or "y" or "Y":
         return true
@@ -72,5 +86,17 @@ def screenBroke():
         screenBroke()
 
 
-def isScreenOn():
-    
+def isScreenOn():  # Is the screen on?
+    ans == input("Is the screen on?")
+    if (ans == "no" or "No" or "n" or "N") and char == false: 
+        print("Try charging your device with a different charger.")
+        char = true
+        isScreenOn()
+    elif (ans == "no" or "No" or "n" or "N") and char == true:
+        return false
+    elif ans == "yes" or "Yes" or "y" or "Y":
+        return true
+    else:
+        print("I did not understand your input, please try again.")
+        isScreenOn()
+
