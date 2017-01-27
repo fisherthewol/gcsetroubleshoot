@@ -19,12 +19,11 @@ def deviceOS():
         deviceOS()
 
 
-
 def warrantyInsure():  # Is the device insured or under warranty?
-    ans = input("Are you under Warranty or Insured with this device?")
-    if ans == "yes" or "Yes" or "y" or "Y":
+    ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
+    if ans == "yes" or "y":
         return true
-    elif ans == "no" or "No" or "n" or "N":
+    elif ans == "no" or "n":
         return false
     else:
         print("I did not understand your input, please try again.")
@@ -32,12 +31,12 @@ def warrantyInsure():  # Is the device insured or under warranty?
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = input("Does your device have any problems?")
-    if ans == "yes" or "Yes" or "y" or "Y":
+    ans = str.lower(str(input("Does your device have any problems?")))
+    if ans == "yes" or "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve this.")
         # CALL MAIN FUNCTION
-    elif ans == "no" or "No" or "n" or "N":
+    elif ans == "no" or "n":
         print("Thanks for using this program; see you around!")
     else:
         print("I did not understand your input, please try again.")
@@ -45,8 +44,8 @@ def problemQue():  # Does this device actually have problems?
 
 
 def backUp(x):  # In main.py, x = deviceOS()
-    ans = input("Have you backed up your device recently?")
-    if ans == "yes" or "Yes" or "y" or "Y":
+    ans = str.lower(str(input("Have you backed up your device recently?")))
+    if ans == "yes" or "y"
         print("We suggest you fully reset your device;")
         if x == "steve":
             print("Plug your Device into your Computer, open itunes and reset it from there.")
@@ -56,7 +55,7 @@ def backUp(x):  # In main.py, x = deviceOS()
             print("See https://support.microsoft.com/en-us/help/10666/windows-phone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow the prompts.")
         print("Thanks for using this program; see you around!")
-    elif ans == "no" or "No" or "n" or "N":
+    elif ans == "no" or "n":
         print("We recommend you see a phone repair shop, especially a virus specialist.")
         print("Thanks for using this program; see you around!")
     else:
@@ -65,10 +64,10 @@ def backUp(x):  # In main.py, x = deviceOS()
 
 
 def infection():  # Is the device infected?
-    ans = input("Is your device infected?")
-    if ans == "yes" or "Yes" or "y" or "Y":
+    ans = str.lower(str(input("Is your device infected?")))
+    if ans == "yes" or "y":
         return true
-    elif ans == "no" or "No" or "n" or "N":
+    elif ans == "no" or "n":
         return false
     else:
         print("I did not understand your input, please try again.")
@@ -76,10 +75,10 @@ def infection():  # Is the device infected?
 
 
 def screenBroke():  # Is the screen broken?
-    ans == input("Is the screen/screen glass broken?")
-    if ans == "yes" or "Yes" or "y" or "Y":
+    ans == str.lower(str(input("Is the screen/screen glass broken?")))
+    if ans == "yes" or "y":
         return true
-    elif ans == "no" or "No" or "n" or "N":
+    elif ans == "no" or "n":
         return false
     else:
         print("I did not understand your input, please try again.")
@@ -87,14 +86,14 @@ def screenBroke():  # Is the screen broken?
 
 
 def isScreenOn():  # Is the screen on?
-    ans == input("Is the screen on?")
-    if (ans == "no" or "No" or "n" or "N") and char == false: 
+    ans == str.lower(str(input("Is the screen on?")))
+    if (ans == "no" or "n") and char == false: 
         print("Try charging your device with a different charger.")
         char = true
         isScreenOn()
-    elif (ans == "no" or "No" or "n" or "N") and char == true:
+    elif (ans == "no" or "n") and char == true:
         return false
-    elif ans == "yes" or "Yes" or "y" or "Y":
+    elif ans == "yes" or "y":
         return true
     else:
         print("I did not understand your input, please try again.")
