@@ -2,12 +2,13 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.35
+__version__ = 0.385
 # This was a file for question functions; now a main file due to method change.
+charged = False
 
 
 def deviceOS():
-    ans = str.lower(str(input("What OS does your phone use?")))
+    ans = str.lower(str(input("What OS does your phone use?"),))
     if ans == "ios" or "apple" or "iphone":
         return "steve"
     elif ans == "samsung" or "android" or "htc" or "lg":
@@ -17,21 +18,24 @@ def deviceOS():
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
+    
 
 
-def warrantyInsure():  # Is the device insured or under warranty?
-    ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
-    if ans == "yes" or "y":
-        return True
-    elif ans == "no" or "n":
-        return False
+def warrantyInsure(x):  # Is the device insured or under warranty?
+    ans = str.lower(str(input("Are you under Warranty or Insured with this device?"),))
+    if (ans == "yes" or "y") and x == "steve":
+        print("Return your device to apple or contact your insurer.")
+    elif (ans == "yes" or "y") and x == "andy":
+        print("Return your device to your manufacturer or contact your insurer.")
+    elif (ans == "yes" or "y") and x == "andy":
+        print("Return your device to Nokia or contact your insurer.")
     else:
         print("I did not understand your input, please try again.")
         warrantyInsure()
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = str.lower(str(input("Does your device have any problems?")))
+    ans = str.lower(str(input("Does your device have any problems?"),))
     if ans == "yes" or "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve this.")
@@ -44,7 +48,7 @@ def problemQue():  # Does this device actually have problems?
 
 
 def backUp(x):  # In main.py, x = deviceOS()
-    ans = str.lower(str(input("Have you backed up your device recently?")))
+    ans = str.lower(str(input("Have you backed up your device recently?"),))
     if ans == "yes" or "y":
         print("We suggest you fully reset your device;")
         if x == "steve":
@@ -64,7 +68,7 @@ def backUp(x):  # In main.py, x = deviceOS()
 
 
 def infection():  # Is the device infected?
-    ans = str.lower(str(input("Is your device infected?")))
+    ans = str.lower(str(input("Is your device infected?"),))
     if ans == "yes" or "y":
         return True
     elif ans == "no" or "n":
@@ -75,17 +79,14 @@ def infection():  # Is the device infected?
 
 
 def screenBroke():  # Is the screen broken?
-    ans == str.lower(str(input("Is the screen/screen glass broken?")))
+    ans == str.lower(str(input("Is the screen/screen glass broken?"),))
     if ans == "yes" or "y":
-        return True
+        warrantyInsure()
     elif ans == "no" or "n":
-        return False
+        infection()
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
-
-
-charged = False
 
 
 def isScreenOn():  # Is the screen on?
@@ -95,9 +96,28 @@ def isScreenOn():  # Is the screen on?
         charged = True
         isScreenOn()
     elif (ans == "no" or "n") and charged == True:
-        return False
+        warrantyInsure()
     elif ans == "yes" or "y":
-        return True
+        screenBroke()
     else:
         print("I did not understand your input, please try again.")
         isScreenOn()
+
+
+def deviceWater():  # Is the problem due to water?
+    ans = str.lower(str(input("Does your issue involve water?"),))
+    if ans == "yes" or "y":
+        print("Dry your device!"),
+        print("Take it apart as far as you can"),
+        print("(remove back cover and battery if possible),"),
+        print("gently towel dry the outer, then"),
+        print("place in rice or (preferably) silica gel for a time."),
+        print("Then, remove from the rice and replace the battery"),
+        print("and try to turn the device on.")
+        isScreenOn()
+    elif ans == "no" or "n":
+        isScreenOn()
+    else:
+        print("I did not understand your input, please try again.")
+        deviceWater()
+
