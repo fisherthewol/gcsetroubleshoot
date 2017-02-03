@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.20
+__version__ = 0.22
 # This is a file for question functions; allows for //modularity//
 
 
@@ -85,6 +85,7 @@ def screenBroke():  # Is the screen broken?
         screenBroke()
 
 
+char = false
 def isScreenOn():  # Is the screen on?
     ans == str.lower(str(input("Is the screen on?")))
     if (ans == "no" or "n") and char == false: 
@@ -99,3 +100,18 @@ def isScreenOn():  # Is the screen on?
         print("I did not understand your input, please try again.")
         isScreenOn()
 
+
+# Test Script
+var0 = deviceOS()
+print(var0)
+var1 = str(warrantyInsure())
+print(var1)
+var2 = str(problemQue())
+print(var2)
+var3 = backUp(var0)
+var4 = str(infection())
+print(var4)
+var5 = str(screenBroke())
+print(var5)
+var6 = str(isScreenOn())
+print(var6)
