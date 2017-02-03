@@ -2,8 +2,8 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.22
-# This is a file for question functions; allows for //modularity//
+__version__ = 0.24
+# This was a file for question functions; now is main file due to changed method.
 
 
 def deviceOS():
@@ -45,7 +45,7 @@ def problemQue():  # Does this device actually have problems?
 
 def backUp(x):  # In main.py, x = deviceOS()
     ans = str.lower(str(input("Have you backed up your device recently?")))
-    if ans == "yes" or "y"
+    if ans == "yes" or "y":
         print("We suggest you fully reset your device;")
         if x == "steve":
             print("Plug your Device into your Computer, open itunes and reset it from there.")
