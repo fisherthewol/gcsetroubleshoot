@@ -2,8 +2,8 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.24
-# This was a file for question functions; now is main file due to changed method.
+__version__ = 0.30
+# This was a file for question functions; now a main file due to method change.
 
 
 def deviceOS():
@@ -22,9 +22,9 @@ def deviceOS():
 def warrantyInsure():  # Is the device insured or under warranty?
     ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
     if ans == "yes" or "y":
-        return true
+        return True
     elif ans == "no" or "n":
-        return false
+        return False
     else:
         print("I did not understand your input, please try again.")
         warrantyInsure()
@@ -35,7 +35,7 @@ def problemQue():  # Does this device actually have problems?
     if ans == "yes" or "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve this.")
-        # CALL MAIN FUNCTION
+        deviceOS()
     elif ans == "no" or "n":
         print("Thanks for using this program; see you around!")
     else:
@@ -66,9 +66,9 @@ def backUp(x):  # In main.py, x = deviceOS()
 def infection():  # Is the device infected?
     ans = str.lower(str(input("Is your device infected?")))
     if ans == "yes" or "y":
-        return true
+        return True
     elif ans == "no" or "n":
-        return false
+        return False
     else:
         print("I did not understand your input, please try again.")
         infection()
@@ -77,25 +77,25 @@ def infection():  # Is the device infected?
 def screenBroke():  # Is the screen broken?
     ans == str.lower(str(input("Is the screen/screen glass broken?")))
     if ans == "yes" or "y":
-        return true
+        return True
     elif ans == "no" or "n":
-        return false
+        return False
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
 
 
-char = false
+charged = False
 def isScreenOn():  # Is the screen on?
     ans == str.lower(str(input("Is the screen on?")))
-    if (ans == "no" or "n") and char == false: 
+    if (ans == "no" or "n") and charged == False:
         print("Try charging your device with a different charger.")
-        char = true
+        charged = True
         isScreenOn()
-    elif (ans == "no" or "n") and char == true:
-        return false
+    elif (ans == "no" or "n") and charged == True:
+        return False
     elif ans == "yes" or "y":
-        return true
+        return True
     else:
         print("I did not understand your input, please try again.")
         isScreenOn()
