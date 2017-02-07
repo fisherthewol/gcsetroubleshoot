@@ -1,0 +1,9 @@
+iphone:
+http://forum.iphone-developers.com/
+https://discussions.apple.com/community/iphone
+https://forums.macrumors.com/forums/iphone.99/
+android:
+https://forum.xda-developers.com/
+https://www.reddit.com/r/AndroidQuestions/
+https://forums.androidcentral.com/
+windows:
