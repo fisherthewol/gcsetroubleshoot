@@ -2,12 +2,49 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.385
+__version__ = 0.40
 # This was a file for question functions; now a main file due to method change.
+
+# Variables
 charged = False
+deviceOS = str
 
 
-def deviceOS():
+
+def isScreenOn():  # Is the screen on?
+    ans == str.lower(str(input("Is the screen on?")))
+    if (ans == "no" or "n") and charged == False:
+        print("Try charging your device with a different charger.")
+        charged = True
+        isScreenOn()
+    elif (ans == "no" or "n") and charged == True:
+        warrantyInsure()
+    elif ans == "yes" or "y":
+        screenBroke()
+    else:
+        print("I did not understand your input, please try again.")
+        isScreenOn()
+
+        
+def deviceWater():  # Is the problem due to water?
+    ans = str.lower(str(input("Does your issue involve water?"),))
+    if ans == "yes" or "y":
+        print("Dry your device!"),
+        print("Take it apart as far as you can"),
+        print("(remove back cover and battery if possible),"),
+        print("gently towel dry the outer, then"),
+        print("place in rice or (preferably) silica gel for a time."),
+        print("Then, remove from the rice and replace the battery"),
+        print("and try to turn the device on.")
+        isScreenOn()
+    elif ans == "no" or "n":
+        isScreenOn()
+    else:
+        print("I did not understand your input, please try again.")
+        deviceWater()
+
+
+def deviceOS():  # What OS does the device use/what manufacturer?
     ans = str.lower(str(input("What OS does your phone use?"),))
     if ans == "ios" or "apple" or "iphone":
         return "steve"
@@ -18,13 +55,12 @@ def deviceOS():
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
-    
 
 
 def warrantyInsure(x):  # Is the device insured or under warranty?
     ans = str.lower(str(input("Are you under Warranty or Insured with this device?"),))
     if (ans == "yes" or "y") and x == "steve":
-        print("Return your device to apple or contact your insurer.")
+        print("Return your device to Apple or contact your insurer.")
     elif (ans == "yes" or "y") and x == "andy":
         print("Return your device to your manufacturer or contact your insurer.")
     elif (ans == "yes" or "y") and x == "andy":
@@ -47,7 +83,7 @@ def problemQue():  # Does this device actually have problems?
         problemQue()
 
 
-def backUp(x):  # In main.py, x = deviceOS()
+def backUp(x):  # parse variable of deviceOS
     ans = str.lower(str(input("Have you backed up your device recently?"),))
     if ans == "yes" or "y":
         print("We suggest you fully reset your device;")
@@ -87,37 +123,3 @@ def screenBroke():  # Is the screen broken?
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
-
-
-def isScreenOn():  # Is the screen on?
-    ans == str.lower(str(input("Is the screen on?")))
-    if (ans == "no" or "n") and charged == False:
-        print("Try charging your device with a different charger.")
-        charged = True
-        isScreenOn()
-    elif (ans == "no" or "n") and charged == True:
-        warrantyInsure()
-    elif ans == "yes" or "y":
-        screenBroke()
-    else:
-        print("I did not understand your input, please try again.")
-        isScreenOn()
-
-
-def deviceWater():  # Is the problem due to water?
-    ans = str.lower(str(input("Does your issue involve water?"),))
-    if ans == "yes" or "y":
-        print("Dry your device!"),
-        print("Take it apart as far as you can"),
-        print("(remove back cover and battery if possible),"),
-        print("gently towel dry the outer, then"),
-        print("place in rice or (preferably) silica gel for a time."),
-        print("Then, remove from the rice and replace the battery"),
-        print("and try to turn the device on.")
-        isScreenOn()
-    elif ans == "no" or "n":
-        isScreenOn()
-    else:
-        print("I did not understand your input, please try again.")
-        deviceWater()
-
