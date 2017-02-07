@@ -2,12 +2,55 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.41
-# This was a file for question functions; now a main file due to method change.
+__version__ = 0.45
+# MainFile, includes question func - modularity is gone :(
+
+import sys
 
 # Variables
 charged = False
-deviceOS = str
+devicesOS = str
+
+
+def warrantyInsure(x):  # Is the device insured or under warranty?
+    ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
+    if (ans == "yes" or "y") and x == "steve":
+        print("Return your device to Apple or contact your insurer.")
+        print("Thanks for using this program; see you around!")
+        sys.exit()
+    elif (ans == "yes" or "y") and x == "andy":
+        print("Return your device to your manufacturer or contact your insurer.")
+        print("Thanks for using this program; see you around!")
+        sys.exit()
+    elif (ans == "yes" or "y") and x == "andy":
+        print("Return your device to Nokia or contact your insurer.")
+        print("Thanks for using this program; see you around!")
+        sys.exit()
+    else:
+        print("I did not understand your input, please try again.")
+        warrantyInsure()
+
+
+def infection():  # Is the device infected?
+    ans = str.lower(str(input("Is your device infected?")))
+    if ans == "yes" or "y":
+        return True
+    elif ans == "no" or "n":
+        return False
+    else:
+        print("I did not understand your input, please try again.")
+        infection()
+
+
+def screenBroke():  # Is the screen broken?
+    ans == str.lower(str(input("Is the screen/screen glass broken?")))
+    if ans == "yes" or "y":
+        warrantyInsure()
+    elif ans == "no" or "n":
+        infection()
+    else:
+        print("I did not understand your input, please try again.")
+        screenBroke()
 
 
 def isScreenOn():  # Is the screen on?
@@ -17,7 +60,7 @@ def isScreenOn():  # Is the screen on?
         charged = True
         isScreenOn()
     elif (ans == "no" or "n") and charged == True:
-        warrantyInsure()
+        warrantyInsure(devicesOS)
     elif ans == "yes" or "y":
         screenBroke()
     else:
@@ -46,30 +89,17 @@ def deviceWater():  # Is the problem due to water?
 def deviceOS():  # What OS does the device use/what manufacturer?
     ans = str.lower(str(input("What OS does your phone use?")))
     if ans == "ios" or "apple" or "iphone":
-        deviceOS = "steve"
+        devicesOS = "steve"
         deviceWater()
     elif ans == "samsung" or "android" or "htc" or "lg":
-        deviceOS = "andy"
+        devicesOS = "andy"
         deviceWater()
     elif ans == "nokia" or "windows" or "lumia":
-        deviceOS = "gates"
+        devicesOS = "gates"
         deviceWater()
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
-
-
-def warrantyInsure(x):  # Is the device insured or under warranty?
-    ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
-    if (ans == "yes" or "y") and x == "steve":
-        print("Return your device to Apple or contact your insurer.")
-    elif (ans == "yes" or "y") and x == "andy":
-        print("Return your device to your manufacturer or contact your insurer.")
-    elif (ans == "yes" or "y") and x == "andy":
-        print("Return your device to Nokia or contact your insurer.")
-    else:
-        print("I did not understand your input, please try again.")
-        warrantyInsure()
 
 
 def problemQue():  # Does this device actually have problems?
@@ -80,6 +110,7 @@ def problemQue():  # Does this device actually have problems?
         deviceOS()
     elif ans == "no" or "n":
         print("Thanks for using this program; see you around!")
+        sys.exit()
     else:
         print("I did not understand your input, please try again.")
         problemQue()
@@ -103,25 +134,3 @@ def backUp(x):  # parse variable of deviceOS
     else:
         print("I did not understand your input, please try again.")
         backup()
-
-
-def infection():  # Is the device infected?
-    ans = str.lower(str(input("Is your device infected?")))
-    if ans == "yes" or "y":
-        return True
-    elif ans == "no" or "n":
-        return False
-    else:
-        print("I did not understand your input, please try again.")
-        infection()
-
-
-def screenBroke():  # Is the screen broken?
-    ans == str.lower(str(input("Is the screen/screen glass broken?")))
-    if ans == "yes" or "y":
-        warrantyInsure()
-    elif ans == "no" or "n":
-        infection()
-    else:
-        print("I did not understand your input, please try again.")
-        screenBroke()
