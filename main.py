@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.485
+__version__ = 0.49
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -50,6 +50,8 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
     else:
         print("I did not understand your input, please try again.")
         warrantyInsure()
+    print("Thanks for using this program; see you around!")
+    sys.exit()
 
 
 def infection():  # Is the device infected?
