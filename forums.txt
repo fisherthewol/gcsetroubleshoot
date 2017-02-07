@@ -7,3 +7,6 @@ https://forum.xda-developers.com/
 https://www.reddit.com/r/AndroidQuestions/
 https://forums.androidcentral.com/
 windows:
+http://forums.windowscentral.com/windows-10-mobile/
+https://forum.xda-developers.com/
+https://www.reddit.com/r/windowsphone/

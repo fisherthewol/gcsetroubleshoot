@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.47
+__version__ = 0.48
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -28,6 +28,11 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
         sys.exit()
     elif (ans == "no" or "n") and x == "steve":
         print("Visit some iphone forums EG:"),
+        forums = open(forums.txt,r)
+        print(forums.readline(2)),
+        print(forums.readline(3)),
+        print(forums.readline(4)),
+        forums.close()
     else:
         print("I did not understand your input, please try again.")
         warrantyInsure()
