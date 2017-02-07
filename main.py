@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 0.40
+__version__ = 0.41
 # This was a file for question functions; now a main file due to method change.
 
 # Variables
@@ -10,9 +10,8 @@ charged = False
 deviceOS = str
 
 
-
 def isScreenOn():  # Is the screen on?
-    ans == str.lower(str(input("Is the screen on?")))
+    ans = str.lower(str(input("Is the screen on?")))
     if (ans == "no" or "n") and charged == False:
         print("Try charging your device with a different charger.")
         charged = True
@@ -25,9 +24,9 @@ def isScreenOn():  # Is the screen on?
         print("I did not understand your input, please try again.")
         isScreenOn()
 
-        
+
 def deviceWater():  # Is the problem due to water?
-    ans = str.lower(str(input("Does your issue involve water?"),))
+    ans = str.lower(str(input("Does your issue involve water?")))
     if ans == "yes" or "y":
         print("Dry your device!"),
         print("Take it apart as far as you can"),
@@ -45,20 +44,23 @@ def deviceWater():  # Is the problem due to water?
 
 
 def deviceOS():  # What OS does the device use/what manufacturer?
-    ans = str.lower(str(input("What OS does your phone use?"),))
+    ans = str.lower(str(input("What OS does your phone use?")))
     if ans == "ios" or "apple" or "iphone":
-        return "steve"
+        deviceOS = "steve"
+        deviceWater()
     elif ans == "samsung" or "android" or "htc" or "lg":
-        return "andy"
+        deviceOS = "andy"
+        deviceWater()
     elif ans == "nokia" or "windows" or "lumia":
-        return "bill"
+        deviceOS = "gates"
+        deviceWater()
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
 
 
 def warrantyInsure(x):  # Is the device insured or under warranty?
-    ans = str.lower(str(input("Are you under Warranty or Insured with this device?"),))
+    ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
     if (ans == "yes" or "y") and x == "steve":
         print("Return your device to Apple or contact your insurer.")
     elif (ans == "yes" or "y") and x == "andy":
@@ -71,7 +73,7 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = str.lower(str(input("Does your device have any problems?"),))
+    ans = str.lower(str(input("Does your device have any problems?")))
     if ans == "yes" or "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve this.")
@@ -84,9 +86,9 @@ def problemQue():  # Does this device actually have problems?
 
 
 def backUp(x):  # parse variable of deviceOS
-    ans = str.lower(str(input("Have you backed up your device recently?"),))
+    ans = str.lower(str(input("Have you backed up your device recently?")))
     if ans == "yes" or "y":
-        print("We suggest you fully reset your device;")
+        print("We suggest you fully reset your device;"),
         if x == "steve":
             print("Plug your Device into your Computer, open itunes and reset it from there.")
         elif x == "andy":
@@ -96,7 +98,7 @@ def backUp(x):  # parse variable of deviceOS
             print("Go to Settings, About Phone, select reset phone, and follow the prompts.")
         print("Thanks for using this program; see you around!")
     elif ans == "no" or "n":
-        print("We recommend you see a phone repair shop, especially a virus specialist.")
+        print("We recommend you see a phone repair shop, especially a virus specialist."),
         print("Thanks for using this program; see you around!")
     else:
         print("I did not understand your input, please try again.")
@@ -104,7 +106,7 @@ def backUp(x):  # parse variable of deviceOS
 
 
 def infection():  # Is the device infected?
-    ans = str.lower(str(input("Is your device infected?"),))
+    ans = str.lower(str(input("Is your device infected?")))
     if ans == "yes" or "y":
         return True
     elif ans == "no" or "n":
@@ -115,7 +117,7 @@ def infection():  # Is the device infected?
 
 
 def screenBroke():  # Is the screen broken?
-    ans == str.lower(str(input("Is the screen/screen glass broken?"),))
+    ans == str.lower(str(input("Is the screen/screen glass broken?")))
     if ans == "yes" or "y":
         warrantyInsure()
     elif ans == "no" or "n":
