@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.54
+__version__ = 0.57
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -15,7 +15,7 @@ devicesOS = str
 
 def warrantyInsure(x):  # Is the device insured or under warranty?
     ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
-    if (ans == "yes" or "y") and x == "steve":
+    if (ans == "yes" or "y") and (x == "steve"):
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
@@ -50,7 +50,7 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
         forums.close()
     else:
         print("I did not understand your input, please try again.")
-        warrantyInsure()
+        warrantyInsure(devicesOS)
     print("Thanks for using this program; see you around!")
     sys.exit()
 
@@ -106,7 +106,7 @@ def infection():  # Is the device infected?
 
 
 def screenBroke():  # Is the screen broken?
-    ans == str.lower(str(input("Is the screen/screen glass broken?")))
+    ans = str.lower(str(input("Is the screen/screen glass broken?")))
     if ans == "yes" or "y":
         warrantyInsure(devicesOS)
     elif ans == "no" or "n":
