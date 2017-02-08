@@ -2,13 +2,14 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.50
+__version__ = 0.54
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
 
 # Variables
-charged = False
+global charged
+charged = bool
 devicesOS = str
 
 
@@ -78,6 +79,7 @@ def backUp(x):  # parse variable devicesOS
         print("I did not understand your input, please try again.")
         backup()
 
+
 def problemQue():  # Does this device actually have problems?
     ans = str.lower(str(input("Does your device have any problems?")))
     if ans == "yes" or "y":
@@ -116,6 +118,7 @@ def screenBroke():  # Is the screen broken?
 
 def isScreenOn():  # Is the screen on?
     ans = str.lower(str(input("Is the screen on?")))
+    global charged
     if (ans == "no" or "n") and charged == False:
         print("Try charging your device with a different charger.")
         charged = True
@@ -161,3 +164,6 @@ def deviceOS():  # What OS does the device use/what manufacturer?
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
+
+
+deviceOS()
