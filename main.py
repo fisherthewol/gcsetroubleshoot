@@ -2,14 +2,14 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.57
+__version__ = 0.58
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
 
 # Variables
-global charged
-charged = bool
+
+charged = False
 devicesOS = str
 
 
@@ -116,14 +116,13 @@ def screenBroke():  # Is the screen broken?
         screenBroke()
 
 
-def isScreenOn():  # Is the screen on?
+def isScreenOn(x):  # Is the screen on?
     ans = str.lower(str(input("Is the screen on?")))
-    global charged
-    if (ans == "no" or "n") and charged == False:
+    if (ans == "no" or "n") and x == False:
         print("Try charging your device with a different charger.")
-        charged = True
+        x = True
         isScreenOn()
-    elif (ans == "no" or "n") and charged == True:
+    elif (ans == "no" or "n") and x == True:
         warrantyInsure(devicesOS)
     elif ans == "yes" or "y":
         screenBroke()
