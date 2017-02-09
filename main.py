@@ -165,4 +165,13 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         deviceOS()
 
 
-deviceOS()
+if sys.version_info[0] < 3:
+    print "This system is running a version of python less than 3.\n"
+    print "Please update your system and try again."
+    sys.exit()
+elif sys.version_info[0] >= 3:
+    deviceOS()
+else:
+    print("YOU SHOULDN'T BE SEEING THIS!")
+    print "YOU SHOULDN'T BE SEEING THIS!"
+    sys.exit
