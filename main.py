@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.59
+__version__ = 0.6
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -15,19 +15,19 @@ devicesOS = str
 
 def warrantyInsure(x):  # Is the device insured or under warranty?
     ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
-    if (ans == "yes" or "y") and (x == "steve"):
+    if ans == "yes" or "y" and x == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
-    elif (ans == "yes" or "y") and x == "andy":
+    elif ans == "yes" or "y" and x == "andy":
         print("Return your device to your manufacturer or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
-    elif (ans == "yes" or "y") and x == "gates":
+    elif ans == "yes" or "y" and x == "gates":
         print("Return your device to Nokia or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
-    elif (ans == "no" or "n") and x == "steve":
+    elif ans == "no" or "n" and x == "steve":
         print("Visit some iphone forums, EG:"),
         forums = open(forums.txt,r)
         print(str(forums.readline(2))),
@@ -118,13 +118,13 @@ def screenBroke():  # Is the screen broken?
 
 def isScreenOn(x):  # Is the screen on?
     ans = str.lower(str(input("Is the screen on?")))
-    if (ans == "no" or "n") and x == False:
+    if (ans == "no" or ans == "n") and (x == False):
         print("Try charging your device with a different charger.")
         x = True
         isScreenOn(x)
-    elif (ans == "no" or "n") and x == True:
+    elif (ans == "no" or ans == "n") and (x == True):
         warrantyInsure(devicesOS)
-    elif ans == "yes" or "y":
+    elif (ans == "yes") or (ans == "y"):
         screenBroke()
     else:
         print("I did not understand your input, please try again.")
@@ -163,5 +163,6 @@ def deviceOS():  # What OS does the device use/what manufacturer?
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
+
 
 deviceOS()
