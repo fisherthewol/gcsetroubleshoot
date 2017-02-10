@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.58
+__version__ = 0.59
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -55,7 +55,7 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
     sys.exit()
 
 
-def backUp(x):  # parse variable devicesOS
+def backUp(x):  # is the device backed up
     ans = str.lower(str(input("Have you backed up your device recently?")))
     if ans == "yes" or "y":
         print("We suggest you fully reset your device;"),
@@ -121,14 +121,14 @@ def isScreenOn(x):  # Is the screen on?
     if (ans == "no" or "n") and x == False:
         print("Try charging your device with a different charger.")
         x = True
-        isScreenOn()
+        isScreenOn(x)
     elif (ans == "no" or "n") and x == True:
         warrantyInsure(devicesOS)
     elif ans == "yes" or "y":
         screenBroke()
     else:
         print("I did not understand your input, please try again.")
-        isScreenOn()
+        isScreenOn(x)
 
 
 def deviceWater():  # Is the problem due to water?
@@ -141,9 +141,9 @@ def deviceWater():  # Is the problem due to water?
         print("place in rice or (preferably) silica gel for a time."),
         print("Then, remove from the rice and replace the battery"),
         print("and try to turn the device on.")
-        isScreenOn()
+        isScreenOn(charged)
     elif ans == "no" or "n":
-        isScreenOn()
+        isScreenOn(charged)
     else:
         print("I did not understand your input, please try again.")
         deviceWater()
@@ -164,14 +164,4 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         print("I did not understand your input, please try again.")
         deviceOS()
 
-
-if sys.version_info[0] < 3:
-    print "This system is running a version of python less than 3.\n"
-    print "Please update your system and try again."
-    sys.exit()
-elif sys.version_info[0] >= 3:
-    deviceOS()
-else:
-    print("YOU SHOULDN'T BE SEEING THIS!")
-    print "YOU SHOULDN'T BE SEEING THIS!"
-    sys.exit
+deviceOS()
