@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.6
+__version__ = 0.63
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -14,7 +14,7 @@ devicesOS = str
 
 
 def warrantyInsure(x):  # Is the device insured or under warranty?
-    ans = str.lower(str(input("Are you under Warranty or Insured with this device?")))
+    ans = str.lower(str(input("Are you under Warranty or Insured with this device?\n")))
     if ans == "yes" or "y" and x == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
@@ -29,24 +29,24 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
         sys.exit()
     elif ans == "no" or "n" and x == "steve":
         print("Visit some iphone forums, EG:"),
-        forums = open(forums.txt,r)
-        print(str(forums.readline(2))),
-        print(str(forums.readline(3))),
-        print(str(forums.readline(4))),
+        forums = open("forums.txt","r")
+        print(str(forums.readlines(2))),
+        print(str(forums.readlines(3))),
+        print(str(forums.readlines(4))),
         forums.close()
     elif (ans == "no" or "n") and x == "andy":
         print("Visit some android forums, EG:"),
-        forums = open(forums.txt,r)
-        print(str(forums.readline(6))),
-        print(str(forums.readline(7))),
-        print(str(forums.readline(8))),
+        forums = open("forums.txt","r")
+        print(str(forums.readlines(6))),
+        print(str(forums.readlines(7))),
+        print(str(forums.readlines(8))),
         forums.close()
     elif (ans == "no" or "n") and x == "gates":
         print("Visit some windows phone forums, EG:"),
-        forums = open(forums.txt,r)
-        print(str(forums.readline(10))),
-        print(str(forums.readline(11))),
-        print(str(forums.readline(12))),
+        forums = open("forums.txt","r")
+        print(str(forums.readlines(10))),
+        print(str(forums.readlines(11))),
+        print(str(forums.readlines(12))),
         forums.close()
     else:
         print("I did not understand your input, please try again.")
@@ -56,7 +56,7 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
 
 
 def backUp(x):  # is the device backed up
-    ans = str.lower(str(input("Have you backed up your device recently?")))
+    ans = str.lower(str(input("Have you backed up your device recently?\n")))
     if ans == "yes" or "y":
         print("We suggest you fully reset your device;"),
         if x == "steve":
@@ -81,7 +81,7 @@ def backUp(x):  # is the device backed up
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = str.lower(str(input("Does your device have any problems?")))
+    ans = str.lower(str(input("Does your device have any problems?\n")))
     if ans == "yes" or "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve this.")
@@ -95,7 +95,7 @@ def problemQue():  # Does this device actually have problems?
 
 
 def infection():  # Is the device infected?
-    ans = str.lower(str(input("Is your device infected?")))
+    ans = str.lower(str(input("Is your device infected?\n")))
     if ans == "yes" or "y":
         backUp(devicesOS)
     elif ans == "no" or "n":
@@ -106,7 +106,7 @@ def infection():  # Is the device infected?
 
 
 def screenBroke():  # Is the screen broken?
-    ans = str.lower(str(input("Is the screen/screen glass broken?")))
+    ans = str.lower(str(input("Is the screen/screen glass broken?\n")))
     if ans == "yes" or "y":
         warrantyInsure(devicesOS)
     elif ans == "no" or "n":
@@ -117,7 +117,7 @@ def screenBroke():  # Is the screen broken?
 
 
 def isScreenOn(x):  # Is the screen on?
-    ans = str.lower(str(input("Is the screen on?")))
+    ans = str.lower(str(input("Is the screen on?\n")))
     if (ans == "no" or ans == "n") and (x == False):
         print("Try charging your device with a different charger.")
         x = True
@@ -132,7 +132,7 @@ def isScreenOn(x):  # Is the screen on?
 
 
 def deviceWater():  # Is the problem due to water?
-    ans = str.lower(str(input("Does your issue involve water?")))
+    ans = str.lower(str(input("Does your issue involve water?\n")))
     if ans == "yes" or "y":
         print("Dry your device!"),
         print("Take it apart as far as you can"),
@@ -150,7 +150,7 @@ def deviceWater():  # Is the problem due to water?
 
 
 def deviceOS():  # What OS does the device use/what manufacturer?
-    ans = str.lower(str(input("What OS does your phone use?")))
+    ans = str.lower(str(input("What OS does your phone use?\n")))
     if ans == "ios" or "apple" or "iphone":
         devicesOS = "steve"
         deviceWater()
