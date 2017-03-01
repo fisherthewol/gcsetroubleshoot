@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.63
+__version__ = 0.64
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
@@ -30,23 +30,23 @@ def warrantyInsure(x):  # Is the device insured or under warranty?
     elif ans == "no" or "n" and x == "steve":
         print("Visit some iphone forums, EG:"),
         forums = open("forums.txt","r")
-        print(str(forums.readlines(2))),
-        print(str(forums.readlines(3))),
-        print(str(forums.readlines(4))),
+        print(forums.readlines(1)),
+        print(forums.readlines(2)),
+        print(forums.readlines(3)),
         forums.close()
     elif (ans == "no" or "n") and x == "andy":
         print("Visit some android forums, EG:"),
         forums = open("forums.txt","r")
-        print(str(forums.readlines(6))),
-        print(str(forums.readlines(7))),
-        print(str(forums.readlines(8))),
+        print(forums.readlines(5)),
+        print(forums.readlines(6)),
+        print(forums.readlines(7)),
         forums.close()
     elif (ans == "no" or "n") and x == "gates":
         print("Visit some windows phone forums, EG:"),
         forums = open("forums.txt","r")
-        print(str(forums.readlines(10))),
-        print(str(forums.readlines(11))),
-        print(str(forums.readlines(12))),
+        print(forums.readlines(9)),
+        print(forums.readlines(10)),
+        print(forums.readlines(11)),
         forums.close()
     else:
         print("I did not understand your input, please try again.")
