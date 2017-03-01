@@ -2,15 +2,17 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.64
+__version__ = 0.65
 # MainFile, includes question funcs - modularity is gone :(
 
 import sys
 
 # Variables
 
+global charged
+global devicesOS
 charged = False
-devicesOS = str
+devicesOS = ""
 
 
 def warrantyInsure(x):  # Is the device insured or under warranty?
