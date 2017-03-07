@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.68
+__version__ = 0.69
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -13,7 +13,7 @@ import sys
 global charged
 global devicesOS
 charged = False
-devicesOS = ""
+devicesOS = " "
 
 
 def warrantyInsure(): # Is the device insured or under warranty?
@@ -32,21 +32,24 @@ def warrantyInsure(): # Is the device insured or under warranty?
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif ans == "no" or "n" and devicesOS == "steve":
-        print("Visit some iphone forums, EG:"),
+        print("As your manufacturer will likely not support you, please\n")
+        print("visit some iphone forums, EG:"),
         forums = open("forums.txt","r")
         print(forums.readlines(1)),
         print(forums.readlines(2)),
         print(forums.readlines(3)),
         forums.close()
     elif (ans == "no" or "n") and devicesOS == "andy":
-        print("Visit some android forums, EG:"),
+        print("As your manufacturer will likely not support you, please\n")
+        print("visit some android forums, EG:"),
         forums = open("forums.txt","r")
         print(forums.readlines(5)),
         print(forums.readlines(6)),
         print(forums.readlines(7)),
         forums.close()
     elif (ans == "no" or "n") and devicesOS == "gates":
-        print("Visit some windows phone forums, EG:"),
+        print("As your manufacturer will likely not support you, please\n")
+        print("visit some windows phone forums, EG:"),
         forums = open("forums.txt","r")
         print(forums.readlines(9)),
         print(forums.readlines(10)),
@@ -102,7 +105,7 @@ def problemQue():  # Does this device actually have problems?
 def infection():  # Is the device infected?
     ans = str.lower(str(input("Is your device infected?\n")))
     if ans == "yes" or "y":
-        backUp(devicesOS)
+        backUp()
     elif ans == "no" or "n":
         problemQue()
     else:
@@ -121,13 +124,14 @@ def screenBroke():  # Is the screen broken?
         screenBroke()
 
 
-def isScreenOn(x):  # Is the screen on?
+def isScreenOn():  # Is the screen on?
+    global charged
     ans = str.lower(str(input("Is the screen on?\n")))
-    if (ans == "no" or ans == "n") and (x == False):
+    if (ans == "no" or ans == "n") and (charged == False):
         print("Try charging your device with a different charger.")
-        x = True
-        isScreenOn(x)
-    elif (ans == "no" or ans == "n") and (x == True):
+        charged = True
+        isScreenOn()
+    elif (ans == "no" or ans == "n") and (charged == True):
         warrantyInsure()
     elif (ans == "yes") or (ans == "y"):
         screenBroke()
@@ -148,7 +152,7 @@ def deviceWater():  # Is the problem due to water?
         print("and try to turn the device on.")
         isScreenOn(charged)
     elif ans == "no" or "n":
-        isScreenOn(charged)
+        isScreenOn()
     else:
         print("I did not understand your input, please try again.")
         deviceWater()
@@ -156,6 +160,7 @@ def deviceWater():  # Is the problem due to water?
 
 def deviceOS():  # What OS does the device use/what manufacturer?
     global devicesOS
+    devicesOS = " "
     ans = str.lower(str(input("What OS does your phone use?\n")))
     if ans == "ios" or "apple" or "iphone":
         devicesOS = "steve"
