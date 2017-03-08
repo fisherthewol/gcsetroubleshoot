@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.69
+__version__ = 0.70
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -150,7 +150,7 @@ def deviceWater():  # Is the problem due to water?
         print("place in rice or (preferably) silica gel for a time."),
         print("Then, remove from the rice and replace the battery"),
         print("and try to turn the device on.")
-        isScreenOn(charged)
+        isScreenOn()
     elif ans == "no" or "n":
         isScreenOn()
     else:
