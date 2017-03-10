@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.71
+__version__ = 0.72
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -137,7 +137,7 @@ def isScreenOn():  # Is the screen on?
         screenBroke()
     else:
         print("I did not understand your input, please try again.")
-        isScreenOn(x)
+        isScreenOn()
 
 
 def deviceWater():  # Is the problem due to water?
