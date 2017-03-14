@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.72
+__version__ = 0.76
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -34,26 +34,26 @@ def warrantyInsure(): # Is the device insured or under warranty?
     elif (ans == "no" or ans == "n") and devicesOS == "steve":
         print("As your manufacturer will likely not support you, please\n")
         print("visit some iphone forums, EG:"),
-        forums = open("forums.txt","r")
-        print(forums.readlines(1)),
-        print(forums.readlines(2)),
-        print(forums.readlines(3)),
+        forums = open("forums.txt","r").readlines()
+        print(forums[1]),
+        print(forums[2]),
+        print(forums[3]),
         forums.close()
     elif (ans == "no" or ans == "n") and devicesOS == "andy":
         print("As your manufacturer will likely not support you, please\n")
         print("visit some android forums, EG:"),
-        forums = open("forums.txt","r")
-        print(forums.readlines(5)),
-        print(forums.readlines(6)),
-        print(forums.readlines(7)),
+        forums = open("forums.txt","r").readlines()
+        print(forums[5]),
+        print(forums[6]),
+        print(forums[7]),
         forums.close()
     elif (ans == "no" or ans == "n") and devicesOS == "gates":
         print("As your manufacturer will likely not support you, please\n")
         print("visit some windows phone forums, EG:"),
-        forums = open("forums.txt","r")
-        print(forums.readlines(9)),
-        print(forums.readlines(10)),
-        print(forums.readlines(11)),
+        forums = open("forums.txt","r").readlines()
+        print(forums[9]),
+        print(forums[10]),
+        print(forums[11]),
         forums.close()
     else:
         print("I did not understand your input, please try again.")
