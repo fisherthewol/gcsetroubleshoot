@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 0.76
+__version__ = 0.81
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -11,49 +11,52 @@ import sys
 # Variables
 
 global charged
-global devicesOS
+global operSys
 charged = False
-devicesOS = " "
+operSys = " "
 
 
 def warrantyInsure(): # Is the device insured or under warranty?
-    global devicesOS
+    global operSys
     ans = str.lower(str(input("Are you under Warranty or Insured with this device?\n")))
-    if (ans == "yes" or ans == "y") and devicesOS == "steve":
+    if (ans == "yes" or ans == "y") and operSys == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
-    elif (ans == "yes" or ans == "y") and devicesOS == "andy":
+    elif (ans == "yes" or ans == "y") and operSys == "andy":
         print("Return your device to your manufacturer or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
-    elif (ans == "yes" or ans == "y") and devicesOS == "gates":
+    elif (ans == "yes" or ans == "y") and operSys == "gates":
         print("Return your device to Nokia or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
-    elif (ans == "no" or ans == "n") and devicesOS == "steve":
+    elif (ans == "no" or ans == "n") and operSys == "steve":
         print("As your manufacturer will likely not support you, please\n")
         print("visit some iphone forums, EG:"),
-        forums = open("forums.txt","r").readlines()
-        print(forums[1]),
-        print(forums[2]),
-        print(forums[3]),
+        forums = open("forums.txt","r")
+        f = forums.readlines()
+        print(f[1])
+        print(f[2])
+        print(f[3])
         forums.close()
-    elif (ans == "no" or ans == "n") and devicesOS == "andy":
+    elif (ans == "no" or ans == "n") and operSys == "andy":
         print("As your manufacturer will likely not support you, please\n")
         print("visit some android forums, EG:"),
-        forums = open("forums.txt","r").readlines()
-        print(forums[5]),
-        print(forums[6]),
-        print(forums[7]),
+        forums = open("forums.txt","r")
+        f = forums.readlines()
+        print(f[5])
+        print(f[6])
+        print(f[7])
         forums.close()
-    elif (ans == "no" or ans == "n") and devicesOS == "gates":
+    elif (ans == "no" or ans == "n") and operSys == "gates":
         print("As your manufacturer will likely not support you, please\n")
         print("visit some windows phone forums, EG:"),
-        forums = open("forums.txt","r").readlines()
-        print(forums[9]),
-        print(forums[10]),
-        print(forums[11]),
+        forums = open("forums.txt","r")
+        f = forums.readlines()
+        print(f[9])
+        print(f[10])
+        print(f[11])
         forums.close()
     else:
         print("I did not understand your input, please try again.")
@@ -63,15 +66,15 @@ def warrantyInsure(): # Is the device insured or under warranty?
 
 
 def backUp():  # is the device backed up
-    global devicesOS
+    global operSys
     ans = str.lower(str(input("Have you backed up your device recently?\n")))
     if ans == "yes" or ans == "y":
         print("We suggest you fully reset your device;"),
-        if devicesOS == "steve":
+        if operSys == "steve":
             print("Plug your Device into your Computer, open itunes and reset it from there.")
-        elif devicesOS == "andy":
+        elif operSys == "andy":
             print("Go to settings, scroll and enter Backup and Settings, select Factory Data Reset and follow the prompts.")
-        elif devicesOS == "bill":
+        elif operSys == "bill":
             print("See https://support.microsoft.com/en-us/help/10666/windows-phone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow the prompts.")
         else:
@@ -159,17 +162,17 @@ def deviceWater():  # Is the problem due to water?
 
 
 def deviceOS():  # What OS does the device use/what manufacturer?
-    global devicesOS
-    devicesOS = " "
+    global operSys
+    operSys = " "
     ans = str.lower(str(input("What OS does your phone use?\n")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
-        devicesOS = "steve"
+        operSys = "steve"
         deviceWater()
     elif ans == "samsung" or ans == "android" or ans == "htc" or ans == "lg":
-        devicesOS = "andy"
+        operSys = "andy"
         deviceWater()
     elif ans == "nokia" or ans == "windows" or ans == "lumia":
-        devicesOS = "gates"
+        operSys = "bill"
         deviceWater()
     else:
         print("I did not understand your input, please try again.")
