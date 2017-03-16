@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.0.1
+__version__ = 1.01
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -18,14 +18,13 @@ operSys = " "
 
 def warrantyInsure():  # Is the device insured or under warranty?
     global operSys
-    ans = str.lower(str(input("Are you under Warranty or Insured with this devic
-    "e?\n")))
+    ans = str.lower(str(input("Are you under Warranty or Insured with this device?\n")))
     if (ans == "yes" or ans == "y") and operSys == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "andy":
-        print("Return your device to your manufacturer or contact your
+        print("Return your device to your manufacturer or contact your"
         "insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
@@ -73,24 +72,24 @@ def backUp():  # is the device backed up
     if ans == "yes" or ans == "y":
         print("We suggest you fully reset your device;"),
         if operSys == "steve":
-            print("Plug your Device into your Computer, open itunes and reset it
-            " from there.")
+            print("Plug your Device into your Computer, open itunes and reset i"
+            "t from there.")
         elif operSys == "andy":
-            print("Go to settings, scroll and enter Backup and Settings, select
-            "Factory Data Reset and follow the prompts.")
+            print("Go to settings, scroll and enter Backup and Settings, select"
+            " Factory Data Reset and follow the prompts.")
         elif operSys == "bill":
-            print("See https://support.microsoft.com/en-us/help/10666/windows-p
+            print("See https://support.microsoft.com/en-us/help/10666/windows-p"
             "hone-reset-my-phone"),
-            print("Go to Settings, About Phone, select reset phone, and follow
-            "the prompts.")
+            print("Go to Settings, About Phone, select reset phone, and follow"
+            " the prompts.")
         else:
             print("Error; somehow deviceOS wasn't called!")
             deviceOS()
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif ans == "no" or ans == "n":
-        print("We recommend you see a phone repair shop, especially a virus
-        "specialist."),
+        print("We recommend you see a phone repair shop, especially a virus"
+        " specialist."),
         print("Thanks for using this program; see you around!")
         sys.exit()
     else:
@@ -102,8 +101,8 @@ def problemQue():  # Does this device actually have problems?
     ans = str.lower(str(input("Does your device have any problems?\n")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
-        print("we will now loop you back to the beginning and hope we can solve
-        "this.")
+        print("we will now loop you back to the beginning and hope we can solve"
+        " this.")
         deviceOS()
     elif ans == "no" or ans == "n":
         print("Thanks for using this program; see you around!")
