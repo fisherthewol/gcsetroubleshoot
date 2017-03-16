@@ -1,8 +1,8 @@
 __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
-__status__ = "Tests"
-__version__ = 0.81
+__status__ = "Release"
+__version__ = 1.0.1
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
