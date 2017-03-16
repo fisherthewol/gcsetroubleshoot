@@ -25,7 +25,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "andy":
         print("Return your device to your manufacturer or contact your"
-        "insurer.")
+        " insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "gates":
