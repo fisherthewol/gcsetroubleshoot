@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.01
+__version__ = 1.02
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -33,31 +33,25 @@ def warrantyInsure():  # Is the device insured or under warranty?
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "no" or ans == "n") and operSys == "steve":
-        print("As your manufacturer will likely not support you, please\n")
-        print("visit some iphone forums, EG:"),
+        print("As your manufacturer will likely not support you, please")
+        print("visit some iphone forums, EG:")
         forums = open("forums.txt", "r")
         f = forums.readlines()
-        print(f[1])
-        print(f[2])
-        print(f[3])
+        print(f[1] + f[2] + f[3])
         forums.close()
     elif (ans == "no" or ans == "n") and operSys == "andy":
-        print("As your manufacturer will likely not support you, please\n")
-        print("visit some android forums, EG:"),
+        print("As your manufacturer will likely not support you, please")
+        print("visit some android forums, EG:")
         forums = open("forums.txt", "r")
         f = forums.readlines()
-        print(f[5])
-        print(f[6])
-        print(f[7])
+        print(f[5] + f[6] + f[7])
         forums.close()
     elif (ans == "no" or ans == "n") and operSys == "gates":
-        print("As your manufacturer will likely not support you, please\n")
-        print("visit some windows phone forums, EG:"),
+        print("As your manufacturer will likely not support you, please")
+        print("visit some windows phone forums, EG:")
         forums = open("forums.txt", "r")
         f = forums.readlines()
-        print(f[9])
-        print(f[10])
-        print(f[11])
+        print(f[9] + f[10] + f[11])
         forums.close()
     else:
         print("I did not understand your input, please try again.")
@@ -77,7 +71,7 @@ def backUp():  # is the device backed up
         elif operSys == "andy":
             print("Go to settings, scroll and enter Backup and Settings, select"
             " Factory Data Reset and follow the prompts.")
-        elif operSys == "bill":
+        elif operSys == "gates":
             print("See https://support.microsoft.com/en-us/help/10666/windows-p"
             "hone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow"
@@ -171,7 +165,7 @@ def deviceWater():  # Is the problem due to water?
 def deviceOS():  # What OS does the device use/what manufacturer?
     global operSys
     operSys = " "
-    ans = str.lower(str(input("What OS does your phone use?\n")))
+    ans = str.lower(str(input("What OS/Maker does your phone use?\n")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
         operSys = "steve"
         deviceWater()
@@ -179,7 +173,7 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         operSys = "andy"
         deviceWater()
     elif ans == "nokia" or ans == "windows" or ans == "lumia":
-        operSys = "bill"
+        operSys = "gates"
         deviceWater()
     else:
         print("I did not understand your input, please try again.")
