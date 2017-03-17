@@ -180,4 +180,10 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         deviceOS()
 
 
-deviceOS()
+def main():
+    lst = []
+    ans = str.lower(str(input("Please describe your problem\n>")))
+    lst = str.split(ans)
+    print(lst[0])
+
+main()
