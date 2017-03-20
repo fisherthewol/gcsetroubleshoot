@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.03
+__version__ = 1.08
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -92,7 +92,7 @@ def backUp():  # is the device backed up
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = str.lower(str(input("Does your device have any problems?\n")))
+    ans = str.lower(str(input("Does your device have any issues?\n")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve"
@@ -107,11 +107,14 @@ def problemQue():  # Does this device actually have problems?
 
 
 def infection():  # Is the device infected?
-    ans = str.lower(str(input("Is your device infected?\n")))
+    ans = str.lower(str(input("Do you think your device is infected with a "
+    "virus?\n")))
     if ans == "yes" or ans == "y":
         backUp()
     elif ans == "no" or ans == "n":
-        problemQue()
+        print("Your issue is currently not interperatable.")
+        print("This program will now close.")
+        sys.exit
     else:
         print("I did not understand your input, please try again.")
         infection()
@@ -121,8 +124,10 @@ def screenBroke():  # Is the screen broken?
     ans = str.lower(str(input("Is the screen/screen glass broken?\n")))
     if ans == "yes" or ans == "y":
         warrantyInsure()
-    elif ans == "no" or ans == "n":
-        infection()
+    elif ans =="no" or ans == "n":
+        print("Your issue is currently not interperatable.")
+        print("This program will now close.")
+        sys.exit
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
@@ -154,9 +159,13 @@ def deviceWater():  # Is the problem due to water?
         print("place in rice or (preferably) silica gel for a time."),
         print("Then, remove from the rice and replace the battery"),
         print("and try to turn the device on.")
+        global dried
+        dried = True
         isScreenOn()
     elif ans == "no" or ans == "n":
-        isScreenOn()
+        print("Your issue is currently not interperatable.")
+        print("This program will now close.")
+        sys.exit
     else:
         print("I did not understand your input, please try again.")
         deviceWater()
@@ -167,23 +176,43 @@ def deviceOS():  # What OS does the device use/what manufacturer?
     operSys = " "
     ans = str.lower(str(input("What OS/Maker does your phone use?\n")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
-        operSys = "steve"
-        deviceWater()
+        return "steve"
     elif ans == "samsung" or ans == "android" or ans == "htc" or ans == "lg":
-        operSys = "andy"
-        deviceWater()
+        return "andy"
     elif ans == "nokia" or ans == "windows" or ans == "lumia":
-        operSys = "gates"
-        deviceWater()
+        return "gates"
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
 
 
 def main():
+    global operSys
+    operSys = deviceOS()
     lst = []
-    ans = str.lower(str(input("Please describe your problem\n>")))
+    ans = str.lower(str(input("Please describe your issue\n>")))
     lst = str.split(ans)
-    print(lst[0])
+    leng = len(lst)
+    for i in leng:
+        if lst[i] == ("screen" or "display" or "glass"):
+            for i in leng:
+                if lst[i] == ("broken" or "shattered"):
+                    print("Input suggests: Broken screen.")
+                    screenBroke()
+                elif lst[i] == ("off" or "black" or "dead"):
+                    print ("Input suggests: Screen off / Battery Issues")
+                    isScreenOn()
+                else:
+                    print("Your issue is currently not interperatable.")
+                    print("This program will now close.")
+                    sys.exit
+        elif lst[i] == ("water" or "toilet" or "bath" or "river"):
+            print("Input suggests: Water invloved.")
+            deviceWater()
+        elif lst[i] == ("infection" or "virus" or "malware" or "infected"):
+            print("Input suggests: Infection")
+            infection()
+        elif lst[i]
+
 
 main()
