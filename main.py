@@ -136,6 +136,8 @@ def screenBroke():  # Is the screen broken?
 def isScreenOn():  # Is the screen on?
     global charged
     ans = str.lower(str(input("Is the screen on?\n")))
+    print("This presumes your device has been dried or has not come into contact with water.")
+    print("If the above is not true, PLEASE dry your device first.")
     if (ans == "no" or ans == "n") and (charged == False):
         print("Try charging your device with a different charger.")
         charged = True
@@ -143,7 +145,9 @@ def isScreenOn():  # Is the screen on?
     elif (ans == "no" or ans == "n") and (charged == True):
         warrantyInsure()
     elif (ans == "yes") or (ans == "y"):
-        screenBroke()
+        print("Your issue is currently not interperatable.")
+        print("This program will now close.")
+        sys.exit
     else:
         print("I did not understand your input, please try again.")
         isScreenOn()
@@ -193,9 +197,9 @@ def main():
     ans = str.lower(str(input("Please describe your issue\n>")))
     lst = str.split(ans)
     leng = len(lst)
-    for i in leng:
+    for i in range(0,leng):
         if lst[i] == ("screen" or "display" or "glass"):
-            for i in leng:
+            for i in range(0,leng):
                 if lst[i] == ("broken" or "shattered"):
                     print("Input suggests: Broken screen.")
                     screenBroke()
@@ -212,7 +216,10 @@ def main():
         elif lst[i] == ("infection" or "virus" or "malware" or "infected"):
             print("Input suggests: Infection")
             infection()
-        elif lst[i]
+        elif lst[i] ==
 
 
+print("DISCLAIMER: The developer(s) of this program accept no responsibility for damage caused to your device due to instructions given.")
+print("All advice given SHOULD be helpful and all attempts have been taken to reduce likelyhood of damage, but we still take no
+"responsibility")
 main()
