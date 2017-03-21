@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.08
+__version__ = 1.12
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -18,7 +18,8 @@ operSys = " "
 
 def warrantyInsure():  # Is the device insured or under warranty?
     global operSys
-    ans = str.lower(str(input("Are you under Warranty or Insured with this device?\n")))
+    ans = str.lower(str(input("Are you under Warranty or Insured with this "
+    "device?\n>")))
     if (ans == "yes" or ans == "y") and operSys == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
@@ -62,7 +63,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
 
 def backUp():  # is the device backed up
     global operSys
-    ans = str.lower(str(input("Have you backed up your device recently?\n")))
+    ans = str.lower(str(input("Have you backed up your device recently?\n>")))
     if ans == "yes" or ans == "y":
         print("We suggest you fully reset your device;"),
         if operSys == "steve":
@@ -92,7 +93,7 @@ def backUp():  # is the device backed up
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = str.lower(str(input("Does your device have any issues?\n")))
+    ans = str.lower(str(input("Does your device have any issues?\n>")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve"
@@ -108,7 +109,7 @@ def problemQue():  # Does this device actually have problems?
 
 def infection():  # Is the device infected?
     ans = str.lower(str(input("Do you think your device is infected with a "
-    "virus?\n")))
+    "virus?\n>")))
     if ans == "yes" or ans == "y":
         backUp()
     elif ans == "no" or ans == "n":
@@ -121,7 +122,7 @@ def infection():  # Is the device infected?
 
 
 def screenBroke():  # Is the screen broken?
-    ans = str.lower(str(input("Is the screen/screen glass broken?\n")))
+    ans = str.lower(str(input("Is the screen/screen glass broken?\n>")))
     if ans == "yes" or ans == "y":
         warrantyInsure()
     elif ans =="no" or ans == "n":
@@ -135,7 +136,7 @@ def screenBroke():  # Is the screen broken?
 
 def isScreenOn():  # Is the screen on?
     global charged
-    ans = str.lower(str(input("Is the screen on?\n")))
+    ans = str.lower(str(input("Is the screen on?\n>")))
     print("This presumes your device has been dried or has not come into contact with water.")
     print("If the above is not true, PLEASE dry your device first.")
     if (ans == "no" or ans == "n") and (charged == False):
@@ -154,7 +155,7 @@ def isScreenOn():  # Is the screen on?
 
 
 def deviceWater():  # Is the problem due to water?
-    ans = str.lower(str(input("Does your issue involve water?\n")))
+    ans = str.lower(str(input("Does your issue involve water?\n>")))
     if ans == "yes" or ans == "y":
         print("Dry your device!"),
         print("Take it apart as far as you can"),
@@ -178,7 +179,7 @@ def deviceWater():  # Is the problem due to water?
 def deviceOS():  # What OS does the device use/what manufacturer?
     global operSys
     operSys = " "
-    ans = str.lower(str(input("What OS/Maker does your phone use?\n")))
+    ans = str.lower(str(input("What OS/Maker does your phone use?\n>")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
         return "steve"
     elif ans == "samsung" or ans == "android" or ans == "htc" or ans == "lg":
@@ -193,33 +194,44 @@ def deviceOS():  # What OS does the device use/what manufacturer?
 def main():
     global operSys
     operSys = deviceOS()
-    lst = []
+    infected = ("infection","virus","malware","infected","broken","shattered",
+    "smashed","cracked","black","off","charge","dead","wifi","4g","internet")
     ans = str.lower(str(input("Please describe your issue\n>")))
-    lst = str.split(ans)
-    leng = len(lst)
-    for i in range(0,leng):
-        if lst[i] == ("screen" or "display" or "glass"):
-            for i in range(0,leng):
-                if lst[i] == ("broken" or "shattered"):
-                    print("Input suggests: Broken screen.")
-                    screenBroke()
-                elif lst[i] == ("off" or "black" or "dead"):
-                    print ("Input suggests: Screen off / Battery Issues")
-                    isScreenOn()
-                else:
-                    print("Your issue is currently not interperatable.")
-                    print("This program will now close.")
-                    sys.exit
-        elif lst[i] == ("water" or "toilet" or "bath" or "river"):
-            print("Input suggests: Water invloved.")
-            deviceWater()
-        elif lst[i] == ("infection" or "virus" or "malware" or "infected"):
-            print("Input suggests: Infection")
-            infection()
-        elif lst[i] ==
+    a = 0
+    while keywords not in ans:
+        a += 1
+    if a < 4:
+        print("Problem detected: Infection.")
+        infection()
+    #for i in range(0,leng):
+    #    if lst[i] == ("screen" or "display" or "glass"):
+    #        for i in range(0,leng):
+    #            if lst[i] == ("broken" or "shattered"):
+    #                print("Input suggests: Broken screen.")
+    #                screenBroke()
+    #            elif lst[i] == ("off" or "black" or "dead"):
+    #                print ("Input suggests: Screen off / Battery Issues")
+    #                isScreenOn()
+    #            else:
+    #                print("Your issue is currently not interperatable.")
+    #                print("This program will now close.")
+    #                sys.exit
+    #    elif lst[i] == ("wet" or "water" or "toilet" or "bath" or "river"):
+    #        print("Input suggests: Water invloved.")
+    #        deviceWater()
+    #    elif lst[i] == ("infection" or "virus" or "malware" or "infected"):
+    #        print("Input suggests: Infection")
+    #        infection()
+    #    else:
+    #        print("Your issue is currently not interperatable.")
+    #        print("This program will now close.")
+    #        sys.exit
 
 
-print("DISCLAIMER: The developer(s) of this program accept no responsibility for damage caused to your device due to instructions given.")
-print("All advice given SHOULD be helpful and all attempts have been taken to reduce likelyhood of damage, but we still take no
-"responsibility")
+print("DISCLAIMER: The developer(s) of this program accept no responsibility "
+"for")
+print("damage caused to your device due to instructions given.")
+print("All advice given SHOULD be helpful and all attempts have been taken to "
+"reduce")
+print("likelyhood of damage, but we still take no responsibility.")
 main()
