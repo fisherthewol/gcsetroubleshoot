@@ -1,8 +1,8 @@
 __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
-__status__ = "Development"
-__version__ = 1.12
+__status__ = "Tests"
+__version__ = 1.16
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -191,41 +191,51 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         deviceOS()
 
 
+def connect():
+    ans = str.lower(str(input("Is your 4g/wifi not working?\n>")))
+    if (ans == "no" or ans == "n"):
+        print("Try turning your device off and on again.")
+        ans = str.lower(str(input("Did this fix it?\n>")))
+        if (ans == "no" or ans == "n"):
+            warrantyInsure()
+        elif (ans == "yes" or ans == "y"):
+            print("Thanks for using this program; see you around!")
+            sys.exit()
+        else:
+            print("Sorry, I did not understand your input.")
+            print("Unfortunately, I will have to restart this entire question.")
+            connect()
+    elif (ans == "yes" or ans == "y"):
+        print("Your issue is currently not interperatable.")
+        print("This program will now close.")
+        sys.exit
+
+
 def main():
     global operSys
     operSys = deviceOS()
-    infected = ("infection","virus","malware","infected","broken","shattered",
+    keywords = ("infection","virus","malware","infected","broken","shattered",
     "smashed","cracked","black","off","charge","dead","wifi","4g","internet")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
-    while keywords not in ans:
+    while keywords[a] not in ans:
         a += 1
     if a < 4:
         print("Problem detected: Infection.")
         infection()
-    #for i in range(0,leng):
-    #    if lst[i] == ("screen" or "display" or "glass"):
-    #        for i in range(0,leng):
-    #            if lst[i] == ("broken" or "shattered"):
-    #                print("Input suggests: Broken screen.")
-    #                screenBroke()
-    #            elif lst[i] == ("off" or "black" or "dead"):
-    #                print ("Input suggests: Screen off / Battery Issues")
-    #                isScreenOn()
-    #            else:
-    #                print("Your issue is currently not interperatable.")
-    #                print("This program will now close.")
-    #                sys.exit
-    #    elif lst[i] == ("wet" or "water" or "toilet" or "bath" or "river"):
-    #        print("Input suggests: Water invloved.")
-    #        deviceWater()
-    #    elif lst[i] == ("infection" or "virus" or "malware" or "infected"):
-    #        print("Input suggests: Infection")
-    #        infection()
-    #    else:
-    #        print("Your issue is currently not interperatable.")
-    #        print("This program will now close.")
-    #        sys.exit
+    elif a >= 4 and a < 8:
+        print("Problem detected: Broken Screen.")
+        screenBroke()
+    elif a >= 8 and a < 12:
+        print("Problem detected: Battery/charge issues.")
+        isScreenOn()
+    elif a >= 12:
+        print("Problem detected: Connectivity.")
+        connect()
+    else:
+        print("Your issue is currently not interperatable.")
+        print("This program will now close.")
+        sys.exit
 
 
 print("DISCLAIMER: The developer(s) of this program accept no responsibility "
