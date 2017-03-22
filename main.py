@@ -1,8 +1,8 @@
 __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
-__status__ = "Tests"
-__version__ = 1.16
+__status__ = "Development"
+__version__ = 1.17
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -215,7 +215,8 @@ def main():
     global operSys
     operSys = deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
-    "smashed","cracked","black","off","charge","dead","wifi","4g","internet")
+    "smashed","cracked","black","off","charge","dead","wifi","4g","internet",
+    "water","wet","toilet")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
     while keywords[a] not in ans:
@@ -229,9 +230,11 @@ def main():
     elif a >= 8 and a < 12:
         print("Problem detected: Battery/charge issues.")
         isScreenOn()
-    elif a >= 12:
+    elif a >= 12 and a < 15:
         print("Problem detected: Connectivity.")
         connect()
+    elif a >= 15:
+        # water
     else:
         print("Your issue is currently not interperatable.")
         print("This program will now close.")
