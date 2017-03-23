@@ -2,8 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.17
-# MainFile, includes question funcs - modularity is gone :(
+__version__ = 1.20
 # Imports
 
 import sys
@@ -209,6 +208,9 @@ def connect():
         print("Your issue is currently not interperatable.")
         print("This program will now close.")
         sys.exit
+    else:
+        print("Sorry, I did not understand your input.")
+        connect()
 
 
 def main():
@@ -216,10 +218,10 @@ def main():
     operSys = deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
     "smashed","cracked","black","off","charge","dead","wifi","4g","internet",
-    "water","wet","toilet")
+    "water","wet","toilet","end")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
-    while keywords[a] not in ans:
+    while (keywords[a] not in ans) and (a < 18):
         a += 1
     if a < 4:
         print("Problem detected: Infection.")
@@ -233,8 +235,9 @@ def main():
     elif a >= 12 and a < 15:
         print("Problem detected: Connectivity.")
         connect()
-    elif a >= 15:
-        # water
+    elif a >= 15 and a < 18:
+        print("Problem detected: Water.")
+        deviceWater()
     else:
         print("Your issue is currently not interperatable.")
         print("This program will now close.")
