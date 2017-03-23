@@ -217,11 +217,11 @@ def main():
     global operSys
     operSys = deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
-    "smashed","cracked","black","off","charge","dead","wifi","4g","internet",
-    "water","wet","toilet","end")
+    "smashed","cracked","black","off","charge","dead","on","wifi","4g",
+    "internet","water","wet","toilet","end")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
-    while (keywords[a] not in ans) and (a < 18):
+    while (keywords[a] not in ans) and (a < 19):
         a += 1
     if a < 4:
         print("Problem detected: Infection.")
@@ -229,13 +229,13 @@ def main():
     elif a >= 4 and a < 8:
         print("Problem detected: Broken Screen.")
         screenBroke()
-    elif a >= 8 and a < 12:
+    elif a >= 8 and a < 13:
         print("Problem detected: Battery/charge issues.")
         isScreenOn()
-    elif a >= 12 and a < 15:
+    elif a >= 13 and a < 16:
         print("Problem detected: Connectivity.")
         connect()
-    elif a >= 15 and a < 18:
+    elif a >= 16 and a < 19:
         print("Problem detected: Water.")
         deviceWater()
     else:
