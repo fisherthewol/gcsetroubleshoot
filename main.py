@@ -1,8 +1,8 @@
 __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
-__status__ = "Development"
-__version__ = 1.20
+__status__ = "Tests"
+__version__ = 1.21
 # Imports
 
 import sys
@@ -39,6 +39,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         f = forums.readlines()
         print(f[1] + f[2] + f[3])
         forums.close()
+        print("And try searching/asking about your issue there.")
     elif (ans == "no" or ans == "n") and operSys == "andy":
         print("As your manufacturer will likely not support you, please")
         print("visit some android forums, EG:")
@@ -46,6 +47,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         f = forums.readlines()
         print(f[5] + f[6] + f[7])
         forums.close()
+        print("And try searching/asking about your issue there.")
     elif (ans == "no" or ans == "n") and operSys == "gates":
         print("As your manufacturer will likely not support you, please")
         print("visit some windows phone forums, EG:")
@@ -53,6 +55,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         f = forums.readlines()
         print(f[9] + f[10] + f[11])
         forums.close()
+        print("And try searching/asking about your issue there.")
     else:
         print("I did not understand your input, please try again.")
         warrantyInsure()
@@ -78,7 +81,8 @@ def backUp():  # is the device backed up
             " the prompts.")
         else:
             print("Error; somehow deviceOS wasn't called!")
-            deviceOS()
+            print("We will now loop this program.")
+            main()
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif ans == "no" or ans == "n":
@@ -112,7 +116,7 @@ def infection():  # Is the device infected?
     if ans == "yes" or ans == "y":
         backUp()
     elif ans == "no" or ans == "n":
-        print("Your issue is currently not interperatable.")
+        print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
     else:
@@ -125,7 +129,7 @@ def screenBroke():  # Is the screen broken?
     if ans == "yes" or ans == "y":
         warrantyInsure()
     elif ans =="no" or ans == "n":
-        print("Your issue is currently not interperatable.")
+        print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
     else:
@@ -136,7 +140,8 @@ def screenBroke():  # Is the screen broken?
 def isScreenOn():  # Is the screen on?
     global charged
     ans = str.lower(str(input("Is the screen on?\n>")))
-    print("This presumes your device has been dried or has not come into contact with water.")
+    print("This presumes your device has been dried or has not come into"
+    " contact with water.")
     print("If the above is not true, PLEASE dry your device first.")
     if (ans == "no" or ans == "n") and (charged == False):
         print("Try charging your device with a different charger.")
@@ -145,7 +150,7 @@ def isScreenOn():  # Is the screen on?
     elif (ans == "no" or ans == "n") and (charged == True):
         warrantyInsure()
     elif (ans == "yes") or (ans == "y"):
-        print("Your issue is currently not interperatable.")
+        print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
     else:
@@ -167,7 +172,7 @@ def deviceWater():  # Is the problem due to water?
         dried = True
         isScreenOn()
     elif ans == "no" or ans == "n":
-        print("Your issue is currently not interperatable.")
+        print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
     else:
@@ -202,10 +207,10 @@ def connect():
             sys.exit()
         else:
             print("Sorry, I did not understand your input.")
-            print("Unfortunately, I will have to restart this entire question.")
+            print("Unfortunately, I will have to restart this whole question.")
             connect()
     elif (ans == "yes" or ans == "y"):
-        print("Your issue is currently not interperatable.")
+        print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
     else:
@@ -239,7 +244,7 @@ def main():
         print("Problem detected: Water.")
         deviceWater()
     else:
-        print("Your issue is currently not interperatable.")
+        print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
 
