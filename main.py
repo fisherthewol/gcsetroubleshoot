@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 1.22
+__version__ = 1.28
 # Imports
 
 import sys
@@ -11,8 +11,10 @@ import sys
 
 global charged
 global operSys
+global dried
 charged = False
 operSys = " "
+dried = False
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
@@ -34,7 +36,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         sys.exit()
     elif (ans == "no" or ans == "n") and operSys == "steve":
         print("As your manufacturer will likely not support you, please")
-        print("visit some iphone forums, EG:")
+        print("visit some iphone forums, EG:\n")
         forums = open("forums.txt", "r")
         f = forums.readlines()
         print(f[1] + f[2] + f[3])
@@ -42,7 +44,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         print("And try searching/asking about your issue there.")
     elif (ans == "no" or ans == "n") and operSys == "andy":
         print("As your manufacturer will likely not support you, please")
-        print("visit some android forums, EG:")
+        print("visit some android forums, EG:\n")
         forums = open("forums.txt", "r")
         f = forums.readlines()
         print(f[5] + f[6] + f[7])
@@ -50,7 +52,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         print("And try searching/asking about your issue there.")
     elif (ans == "no" or ans == "n") and operSys == "gates":
         print("As your manufacturer will likely not support you, please")
-        print("visit some windows phone forums, EG:")
+        print("visit some windows phone forums, EG:\n")
         forums = open("forums.txt", "r")
         f = forums.readlines()
         print(f[9] + f[10] + f[11])
@@ -96,12 +98,13 @@ def backUp():  # is the device backed up
 
 
 def problemQue():  # Does this device actually have problems?
-    ans = str.lower(str(input("Does your device have any issues?\n>")))
+    ans = str.lower(str(input("Does your device have any (further)"
+    " issues?\n>")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
         print("we will now loop you back to the beginning and hope we can solve"
         " this.")
-        deviceOS()
+        main()
     elif ans == "no" or ans == "n":
         print("Thanks for using this program; see you around!")
         sys.exit()
@@ -129,9 +132,10 @@ def screenBroke():  # Is the screen broken?
     if ans == "yes" or ans == "y":
         warrantyInsure()
     elif ans =="no" or ans == "n":
-        print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
-        sys.exit
+        problemQue()
+        # print("Your issue is currently not interperatable or solvable.")
+        # print("This program will now close.")
+        # sys.exit
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
@@ -140,16 +144,18 @@ def screenBroke():  # Is the screen broken?
 def isScreenOn():  # Is the screen on?
     global charged
     ans = str.lower(str(input("Is the screen on?\n>")))
-    print("This presumes your device has been dried or has not come into"
-    " contact with water.")
-    print("If the above is not true, PLEASE dry your device first.")
-    if (ans == "no" or ans == "n") and (charged == False):
+    if (ans == "no" or ans == "n") and (charged == False) and (dried == False):
+        print("This presumes your device has been dried or has not come into"
+        " contact with water.")
+        print("If the above is not true, PLEASE dry your device first.")
         print("Try charging your device with a different charger.")
         charged = True
         isScreenOn()
-    elif (ans == "no" or ans == "n") and (charged == True):
+    elif (ans == "no" or ans == "n") and (charged == True) and (dried == False):
         warrantyInsure()
-    elif (ans == "yes") or (ans == "y"):
+    elif (ans == "yes") or (ans == "y") and (dried == True):
+        problemQue()
+    elif (ans == "yes") or (ans == "y") and (dried == False):
         print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
@@ -222,7 +228,7 @@ def main():
     global operSys
     deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
-    "smashed","cracked","black","off","charge","dead","on","wifi","4g",
+    "smashed","cracked","black","off","charge","dead","isn't on","wifi","4g",
     "internet","water","wet","toilet","end")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
@@ -243,10 +249,13 @@ def main():
     elif a >= 16 and a < 19:
         print("Problem detected: Water.")
         deviceWater()
-    else:
+    elif a = 19:
         print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
+    else:
+        print("I did not understand your input, please try again.")
+        main()
 
 
 print("DISCLAIMER: The developer(s) of this program accept no responsibility "
