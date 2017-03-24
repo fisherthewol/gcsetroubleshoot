@@ -3,6 +3,7 @@ __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
 __version__ = 1.30
+
 # Imports
 
 import sys
@@ -36,6 +37,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
         sys.exit()
     elif (ans == "no" or ans == "n") and operSys == "steve":
         print("As your manufacturer will likely not support you, please")
+
         print("visit some iphone forums, EG:\n")
         forums = open("forums.txt", "r")
         f = forums.readlines()
