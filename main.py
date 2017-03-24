@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 1.21
+__version__ = 1.22
 # Imports
 
 import sys
@@ -185,11 +185,11 @@ def deviceOS():  # What OS does the device use/what manufacturer?
     operSys = " "
     ans = str.lower(str(input("What OS/Maker does your phone use?\n>")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
-        return "steve"
+        operSys = "steve"
     elif ans == "samsung" or ans == "android" or ans == "htc" or ans == "lg":
-        return "andy"
+        operSys = "andy"
     elif ans == "nokia" or ans == "windows" or ans == "lumia":
-        return "gates"
+        operSys = "gates"
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
@@ -220,13 +220,13 @@ def connect():
 
 def main():
     global operSys
-    operSys = deviceOS()
+    deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
     "smashed","cracked","black","off","charge","dead","on","wifi","4g",
     "internet","water","wet","toilet","end")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
-    while (keywords[a] not in ans) and (a < 19):
+    while keywords[a] not in ans and a < 19:
         a += 1
     if a < 4:
         print("Problem detected: Infection.")
