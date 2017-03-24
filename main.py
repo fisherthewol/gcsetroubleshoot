@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.02
+__version__ = 1.03
 # MainFile, includes question funcs - modularity is gone :(
 # Imports
 
@@ -18,7 +18,8 @@ operSys = " "
 
 def warrantyInsure():  # Is the device insured or under warranty?
     global operSys
-    ans = str.lower(str(input("Are you under Warranty or Insured with this device?\n")))
+    ans = str.lower(str(input("Are you under Warranty or Insured with this "
+    "device?\n")))
     if (ans == "yes" or ans == "y") and operSys == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
