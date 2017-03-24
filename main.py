@@ -204,7 +204,7 @@ def deviceOS():  # What OS does the device use/what manufacturer?
 
 
 def connect():
-    ans = str.lower(str(input("Is your 4g/wifi not working?\n>")))
+    ans = str.lower(str(input("Is your 4g/wifi working?\n>")))
     if (ans == "no" or ans == "n"):
         print("Try turning your device off and on again.")
         ans = str.lower(str(input("Did this fix it?\n>")))
@@ -215,7 +215,7 @@ def connect():
             sys.exit()
         else:
             print("Sorry, I did not understand your input.")
-            print("Unfortunately, I will have to restart this whole question.")
+            print("Unfortunately, We will have to restart this whole question.")
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
