@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Tests"
-__version__ = 1.28
+__version__ = 1.29
 # Imports
 
 import sys
@@ -249,7 +249,7 @@ def main():
     elif a >= 16 and a < 19:
         print("Problem detected: Water.")
         deviceWater()
-    elif a = 19:
+    elif a == 19:
         print("Your issue is currently not interperatable or solvable.")
         print("This program will now close.")
         sys.exit
