@@ -1,21 +1,27 @@
 __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
-__status__ = "Release"
-__version__ = 1.30
+__status__ = "Development"
+__version__ = 1.31
 
 # Imports
 
 import sys
+import datetime
 
 # Variables
 
 global charged
 global operSys
 global dried
+global userProb
 charged = False
 operSys = " "
 dried = False
+userProb = " "
+
+
+# def outPutter():
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
@@ -191,7 +197,7 @@ def deviceWater():  # Is the problem due to water?
 def deviceOS():  # What OS does the device use/what manufacturer?
     global operSys
     operSys = " "
-    ans = str.lower(str(input("What OS/Maker does your phone use?\n>")))
+    ans = str.lower(str(input("What type/maker of phone do you have?\n>")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
         operSys = "steve"
     elif ans == "samsung" or ans == "android" or ans == "htc" or ans == "lg":
