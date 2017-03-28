@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.34
+__version__ = 1.36
 
 # Imports
 
@@ -28,9 +28,6 @@ def outPutter(x):
     file.write("Time: {}\nUserProblem: {}\nIndexReached: {}\n"
     "FunctionReached: {}".format(timey,userProb,aindex,x))
     file.close()
-    return timey
-
-
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
@@ -52,7 +49,6 @@ def warrantyInsure():  # Is the device insured or under warranty?
         sys.exit()
     elif (ans == "no" or ans == "n") and operSys == "steve":
         print("As your manufacturer will likely not support you, please")
-
         print("visit some iphone forums, EG:\n")
         forums = open("forums.txt", "r")
         f = forums.readlines()
@@ -137,7 +133,17 @@ def infection():  # Is the device infected?
         backUp()
     elif ans == "no" or ans == "n":
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("infection")
+            print("Your issue was written to file a file in the userprob"
+            " folder.")
+            print("Please send that file to the developers when you get a "
+            "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+            "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
@@ -150,9 +156,6 @@ def screenBroke():  # Is the screen broken?
         warrantyInsure()
     elif ans =="no" or ans == "n":
         problemQue()
-        # print("Your issue is currently not interperatable or solvable.")
-        # print("This program will now close.")
-        # sys.exit
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
@@ -174,8 +177,18 @@ def isScreenOn():  # Is the screen on?
         problemQue()
     elif (ans == "yes") or (ans == "y") and (dried == False):
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
-        sys.exit
+        try:
+            outPutter("isScreenOn")
+            print("Your issue was written to file a file in the userprob"
+            " folder.")
+            print("Please send that file to the developers when you get a "
+            "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+            "not.")
+        print("Thank you for using this program.\nGoodbye now!")
+        sys.exit()
     else:
         print("I did not understand your input, please try again.")
         isScreenOn()
@@ -196,7 +209,17 @@ def deviceWater():  # Is the problem due to water?
         isScreenOn()
     elif ans == "no" or ans == "n":
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("deviceWater")
+            print("Your issue was written to file a file in the userprob"
+            " folder.")
+            print("Please send that file to the developers when you get a "
+            "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+            "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
@@ -234,7 +257,17 @@ def connect():
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("main")
+            print("Your issue was written to file a file in the userprob"
+            " folder.")
+            print("Please send that file to the developers when you get a "
+            "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+            "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("Sorry, I did not understand your input.")
