@@ -2,12 +2,11 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.31
+__version__ = 1.33
 
 # Imports
 
-import sys
-import datetime
+import sys,time
 
 # Variables
 
@@ -15,13 +14,23 @@ global charged
 global operSys
 global dried
 global userProb
+global aindex
 charged = False
 operSys = " "
 dried = False
 userProb = " "
+aindex = 0
 
 
-# def outPutter():
+def outPutter(x):
+    timey = time.time()
+    file = open("userprob/{}.txt".format(timey),"w+")
+    file.write("Time: {}\nUserProblem: {}\nIndexReached: {}\n"
+    "FunctionReached: {}".format(timey,userProb,aindex,x))
+    file.close()
+    return timey
+
+
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
@@ -234,32 +243,41 @@ def connect():
 
 def main():
     global operSys
+    global userProb
+    global aindex
     deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
     "smashed","cracked","black","off","charge","dead","isn't on","wifi","4g",
     "internet","water","wet","toilet","end")
-    ans = str.lower(str(input("Please describe your issue\n>")))
-    a = 0
-    while keywords[a] not in ans and a < 19:
-        a += 1
-    if a < 4:
+    userProb = str.lower(str(input("Please describe your issue\n>")))
+    aindex = 0
+    while keywords[aindex] not in ans and aindex < 19:
+        aindex += 1
+    if aindex < 4:
         print("Problem detected: Infection.")
         infection()
-    elif a >= 4 and a < 8:
+    elif aindex >= 4 and aindex < 8:
         print("Problem detected: Broken Screen.")
         screenBroke()
-    elif a >= 8 and a < 13:
+    elif aindex >= 8 and aindex < 13:
         print("Problem detected: Battery/charge issues.")
         isScreenOn()
-    elif a >= 13 and a < 16:
+    elif aindex >= 13 and aindex < 16:
         print("Problem detected: Connectivity.")
         connect()
-    elif a >= 16 and a < 19:
+    elif aindex >= 16 and aindex < 19:
         print("Problem detected: Water.")
         deviceWater()
-    elif a == 19:
+    elif aindex == 19:
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("main")
+            print("Your issue was written to file a file in the userprob"
+            " folder.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+            "not.")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
