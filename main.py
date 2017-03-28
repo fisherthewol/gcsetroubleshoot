@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.36
+__version__ = 1.38
 
 # Imports
 
@@ -23,10 +23,12 @@ aindex = 0
 
 
 def outPutter(x):
-    timey = time.time()
-    file = open("userprob/{}.txt".format(timey),"w+")
-    file.write("Time: {}\nUserProblem: {}\nIndexReached: {}\n"
-    "FunctionReached: {}".format(timey,userProb,aindex,x))
+    t = time.time()
+    dtm = time.localtime(t)
+    file = open("userprob/{}.txt".format(t),"w+")
+    file.write("Time: {}:{},{}{}{}\nUserProblem: {}\nIndexReached: {}\n"
+    "FunctionReached: {}".format(dtm[3],dtm[4],dtm[0],dtm[1],dtm[2],
+    userProb,aindex,x))
     file.close()
 
 
