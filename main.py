@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.33
+__version__ = 1.34
 
 # Imports
 
@@ -251,7 +251,7 @@ def main():
     "internet","water","wet","toilet","end")
     userProb = str.lower(str(input("Please describe your issue\n>")))
     aindex = 0
-    while keywords[aindex] not in ans and aindex < 19:
+    while keywords[aindex] not in userProb and aindex < 19:
         aindex += 1
     if aindex < 4:
         print("Problem detected: Infection.")
@@ -274,10 +274,13 @@ def main():
             outPutter("main")
             print("Your issue was written to file a file in the userprob"
             " folder.")
+            print("Please send that file to the developers when you get a "
+            "chance.")
         except:
             print("Error was encountered while trying to write file.")
             print("Your issue may have been written to a file, or it may have "
             "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
