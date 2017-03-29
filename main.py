@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.30
+__version__ = 1.31
 
 # Imports
 
@@ -37,7 +37,6 @@ def warrantyInsure():  # Is the device insured or under warranty?
         sys.exit()
     elif (ans == "no" or ans == "n") and operSys == "steve":
         print("As your manufacturer will likely not support you, please")
-
         print("visit some iphone forums, EG:\n")
         forums = open("forums.txt", "r")
         f = forums.readlines()
@@ -67,7 +66,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
     sys.exit()
 
 
-def backUp():  # is the device backed up
+def backUp():  # Is the device backed up?
     global operSys
     ans = str.lower(str(input("Have you backed up your device recently?\n>")))
     if ans == "yes" or ans == "y":
@@ -135,9 +134,6 @@ def screenBroke():  # Is the screen broken?
         warrantyInsure()
     elif ans =="no" or ans == "n":
         problemQue()
-        # print("Your issue is currently not interperatable or solvable.")
-        # print("This program will now close.")
-        # sys.exit
     else:
         print("I did not understand your input, please try again.")
         screenBroke()
@@ -203,7 +199,7 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         deviceOS()
 
 
-def connect():
+def connect():  # Connectivity issues?
     ans = str.lower(str(input("Is your 4g/wifi working?\n>")))
     if (ans == "no" or ans == "n"):
         print("Try turning your device off and on again.")
@@ -215,7 +211,8 @@ def connect():
             sys.exit()
         else:
             print("Sorry, I did not understand your input.")
-            print("Unfortunately, We will have to restart this whole question.")
+            print("Unfortunately, We will have to restart this whole"
+            " question.")
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
@@ -226,7 +223,7 @@ def connect():
         connect()
 
 
-def main():
+def main():  # Main Function.
     global operSys
     deviceOS()
     keywords = ("infection","virus","malware","infected","broken","shattered",
