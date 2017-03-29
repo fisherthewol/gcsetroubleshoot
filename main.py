@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.44
+__version__ = 1.45
 
 # Imports
 
@@ -27,8 +27,9 @@ def outPutter(x):  # outputs to file
     ti = time.strftime("%H:%M")
     da = time.strftime("%Y%m%d")
     with open("userprob/{}.txt".format(t),"w+") as f:
-        f.write("LocalTime: {} {}\nUserProblem: {}\nIndexReached: {}\n"
-        "FunctionReached: {}".format(da,ti,userProb,aindex,x))
+        f.write("LocalTime: {} {}\nOperSys: {}\nUserProblem: {}\n"
+        "IndexReached: {}\nFunctionReached: {}".format(da,ti,operSys,userProb,
+        aindex,x))
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
