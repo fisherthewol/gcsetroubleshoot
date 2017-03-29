@@ -1,8 +1,8 @@
 __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
-__status__ = "Development"
-__version__ = 1.45
+__status__ = "Tests"
+__version__ = 1.46
 
 # Imports
 
@@ -260,7 +260,7 @@ def connect():  # Connectivity issues?
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
         try:
-            outPutter("main")
+            outPutter("connect")
             print("Your issue was written to file a file in the userprob"
             " folder.")
             print("Please send that file to the developers when you get a "
@@ -304,15 +304,16 @@ def main():  # main function
         print("Problem detected: Water.")
         deviceWater()
     elif aindex == 19:
-        print("Your issue is currently not interperatable or solvable.")
-        outPutter("main")
-        print("Your issue was written to file a file in the userprob"
-        " folder.")
-        print("Please send that file to the developers when you get a "
-        "chance.")
-        # print("Error was encountered while trying to write file.")
-        # print("Your issue may have been written to a file, or it may have "
-        # "not.")
+        try:
+            outPutter("main")
+            print("Your issue was written to file a file in the userprob"
+            " folder.")
+            print("Please send that file to the developers when you get a "
+            "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+            "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
