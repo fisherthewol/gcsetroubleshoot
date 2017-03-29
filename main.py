@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.42
+__version__ = 1.43
 
 # Imports
 
@@ -25,7 +25,7 @@ aindex = 0
 def outPutter(x):  # outputs to file
     t = time.time()
     ti = time.strftime("%H:%M")
-    da = time.strftime("%Y%M%d")
+    da = time.strftime("%Y%m%d")
     # dtm = datetime.datetime.strftime(struc,"%Y%m%d-%H%M")
     file = open("userprob/{}.txt".format(t),"w+")
     file.write("LocalTime: {} {}\nUserProblem: {}\nIndexReached: {}\n"
