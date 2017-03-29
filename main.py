@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Development"
-__version__ = 1.38
+__version__ = 1.42
 
 # Imports
 
@@ -22,13 +22,14 @@ userProb = " "
 aindex = 0
 
 
-def outPutter(x):
+def outPutter(x):  # outputs to file
     t = time.time()
-    dtm = time.localtime(t)
+    ti = time.strftime("%H:%M")
+    da = time.strftime("%Y%M%d")
+    # dtm = datetime.datetime.strftime(struc,"%Y%m%d-%H%M")
     file = open("userprob/{}.txt".format(t),"w+")
-    file.write("Time: {}:{},{}{}{}\nUserProblem: {}\nIndexReached: {}\n"
-    "FunctionReached: {}".format(dtm[3],dtm[4],dtm[0],dtm[1],dtm[2],
-    userProb,aindex,x))
+    file.write("LocalTime: {} {}\nUserProblem: {}\nIndexReached: {}\n"
+    "FunctionReached: {}".format(da,ti,userProb,aindex,x))
     file.close()
 
 
@@ -80,7 +81,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
     sys.exit()
 
 
-def backUp():  # is the device backed up
+def backUp():  # is the device backed up?
     global operSys
     ans = str.lower(str(input("Have you backed up your device recently?\n>")))
     if ans == "yes" or ans == "y":
@@ -243,7 +244,7 @@ def deviceOS():  # What OS does the device use/what manufacturer?
         deviceOS()
 
 
-def connect():
+def connect():  # Connectivity issues?
     ans = str.lower(str(input("Is your 4g/wifi working?\n>")))
     if (ans == "no" or ans == "n"):
         print("Try turning your device off and on again.")
@@ -276,7 +277,7 @@ def connect():
         connect()
 
 
-def main():
+def main():  # main function
     global operSys
     global userProb
     global aindex
@@ -305,16 +306,14 @@ def main():
         deviceWater()
     elif aindex == 19:
         print("Your issue is currently not interperatable or solvable.")
-        try:
-            outPutter("main")
-            print("Your issue was written to file a file in the userprob"
-            " folder.")
-            print("Please send that file to the developers when you get a "
-            "chance.")
-        except:
-            print("Error was encountered while trying to write file.")
-            print("Your issue may have been written to a file, or it may have "
-            "not.")
+        outPutter("main")
+        print("Your issue was written to file a file in the userprob"
+        " folder.")
+        print("Please send that file to the developers when you get a "
+        "chance.")
+        # print("Error was encountered while trying to write file.")
+        # print("Your issue may have been written to a file, or it may have "
+        # "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
@@ -328,4 +327,6 @@ print("damage caused to your device due to instructions given.")
 print("All advice given SHOULD be helpful and all attempts have been taken to "
 "reduce")
 print("likelyhood of damage, but we still take no responsibility.")
+
+
 main()
