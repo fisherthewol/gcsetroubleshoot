@@ -6,7 +6,8 @@ __version__ = 1.46
 
 # Imports
 
-import sys,time
+import sys
+import time
 
 # Variables
 
@@ -26,23 +27,23 @@ def outPutter(x):  # outputs to file
     t = time.time()
     ti = time.strftime("%H:%M")
     da = time.strftime("%Y%m%d")
-    with open("userprob/{}.txt".format(t),"w+") as f:
+    with open("userprob/{}.txt".format(t), "w+") as f:
         f.write("LocalTime: {} {}\nOperSys: {}\nUserProblem: {}\n"
-        "IndexReached: {}\nFunctionReached: {}".format(da,ti,operSys,userProb,
-        aindex,x))
+                "IndexReached: {}\nFunctionReached: {}".format(da, ti, operSys,
+                userProb, aindex, x))
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
     global operSys
     ans = str.lower(str(input("Are you under Warranty or Insured with this "
-    "device?\n>")))
+                              "device?\n>")))
     if (ans == "yes" or ans == "y") and operSys == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "andy":
         print("Return your device to your manufacturer or contact your"
-        " insurer.")
+              " insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "gates":
@@ -86,16 +87,16 @@ def backUp():  # is the device backed up?
     if ans == "yes" or ans == "y":
         print("We suggest you fully reset your device;"),
         if operSys == "steve":
-            print("Plug your Device into your Computer, open itunes and reset i"
-            "t from there.")
+            print("Plug your Device into your Computer, open itunes and reset "
+                  "it from there.")
         elif operSys == "andy":
-            print("Go to settings, scroll and enter Backup and Settings, select"
-            " Factory Data Reset and follow the prompts.")
+            print("Go to settings, scroll and enter Backup and Settings, "
+                  "select Factory Data Reset and follow the prompts.")
         elif operSys == "gates":
-            print("See https://support.microsoft.com/en-us/help/10666/windows-p"
-            "hone-reset-my-phone"),
+            print("See https://support.microsoft.com/en-us/help/10666/"
+                  "windows-phone-reset-my-phone"),
             print("Go to Settings, About Phone, select reset phone, and follow"
-            " the prompts.")
+                  " the prompts.")
         else:
             print("Error; somehow deviceOS wasn't called!")
             print("We will now loop this program.")
@@ -104,7 +105,7 @@ def backUp():  # is the device backed up?
         sys.exit()
     elif ans == "no" or ans == "n":
         print("We recommend you see a phone repair shop, especially a virus"
-        " specialist."),
+              " specialist."),
         print("Thanks for using this program; see you around!")
         sys.exit()
     else:
@@ -114,11 +115,11 @@ def backUp():  # is the device backed up?
 
 def problemQue():  # Does this device actually have problems?
     ans = str.lower(str(input("Does your device have any (further)"
-    " issues?\n>")))
+                              " issues?\n>")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
-        print("we will now loop you back to the beginning and hope we can solve"
-        " this.")
+        print("we will now loop you back to the beginning and hope we can"
+              " solve this.")
         main()
     elif ans == "no" or ans == "n":
         print("Thanks for using this program; see you around!")
@@ -130,7 +131,7 @@ def problemQue():  # Does this device actually have problems?
 
 def infection():  # Is the device infected?
     ans = str.lower(str(input("Do you think your device is infected with a "
-    "virus?\n>")))
+                              "virus?\n>")))
     if ans == "yes" or ans == "y":
         backUp()
     elif ans == "no" or ans == "n":
@@ -138,13 +139,13 @@ def infection():  # Is the device infected?
         try:
             outPutter("infection")
             print("Your issue was written to file a file in the userprob"
-            " folder.")
+                  " folder.")
             print("Please send that file to the developers when you get a "
-            "chance.")
+                  "chance.")
         except:
             print("Error was encountered while trying to write file.")
             print("Your issue may have been written to a file, or it may have "
-            "not.")
+                  "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
@@ -156,7 +157,7 @@ def screenBroke():  # Is the screen broken?
     ans = str.lower(str(input("Is the screen/screen glass broken?\n>")))
     if ans == "yes" or ans == "y":
         warrantyInsure()
-    elif ans =="no" or ans == "n":
+    elif ans == "no" or ans == "n":
         problemQue()
     else:
         print("I did not understand your input, please try again.")
@@ -173,7 +174,7 @@ def isScreenOn():  # Is the screen on?
         print("Try charging your device with a different charger.")
         charged = True
         isScreenOn()
-    elif (ans == "no" or ans == "n") and (charged == True) and (dried == False):
+    elif (ans == "no" or ans == "n") and (charged == True):
         warrantyInsure()
     elif (ans == "yes") or (ans == "y") and (dried == True):
         problemQue()
@@ -182,13 +183,13 @@ def isScreenOn():  # Is the screen on?
         try:
             outPutter("isScreenOn")
             print("Your issue was written to file a file in the userprob"
-            " folder.")
+                  " folder.")
             print("Please send that file to the developers when you get a "
-            "chance.")
+                  "chance.")
         except:
             print("Error was encountered while trying to write file.")
             print("Your issue may have been written to a file, or it may have "
-            "not.")
+                  "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit()
     else:
@@ -214,13 +215,13 @@ def deviceWater():  # Is the problem due to water?
         try:
             outPutter("deviceWater")
             print("Your issue was written to file a file in the userprob"
-            " folder.")
+                  " folder.")
             print("Please send that file to the developers when you get a "
-            "chance.")
+                  "chance.")
         except:
             print("Error was encountered while trying to write file.")
             print("Your issue may have been written to a file, or it may have "
-            "not.")
+                  "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
@@ -255,20 +256,21 @@ def connect():  # Connectivity issues?
             sys.exit()
         else:
             print("Sorry, I did not understand your input.")
-            print("Unfortunately, We will have to restart this whole question.")
+            print("Unfortunately, We will have to restart this whole "
+                  "question.")
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
         try:
             outPutter("connect")
             print("Your issue was written to file a file in the userprob"
-            " folder.")
+                  " folder.")
             print("Please send that file to the developers when you get a "
-            "chance.")
+                  "chance.")
         except:
             print("Error was encountered while trying to write file.")
             print("Your issue may have been written to a file, or it may have "
-            "not.")
+                  "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
@@ -281,9 +283,10 @@ def main():  # main function
     global userProb
     global aindex
     deviceOS()
-    keywords = ("infection","virus","malware","infected","broken","shattered",
-    "smashed","cracked","black","off","charge","dead","isn't on","wifi","4g",
-    "internet","water","wet","toilet","end")
+    keywords = ("infection", "virus", "malware", "infected", "broken",
+                "shattered", "smashed", "cracked", "black", "off", "charge",
+                "dead", "isn't on", "wifi", "4g", "internet", "water", "wet",
+                "toilet", "end")
     userProb = str.lower(str(input("Please describe your issue\n>")))
     aindex = 0
     while keywords[aindex] not in userProb and aindex < 19:
@@ -307,13 +310,13 @@ def main():  # main function
         try:
             outPutter("main")
             print("Your issue was written to file a file in the userprob"
-            " folder.")
+                  " folder.")
             print("Please send that file to the developers when you get a "
-            "chance.")
+                  "chance.")
         except:
             print("Error was encountered while trying to write file.")
             print("Your issue may have been written to a file, or it may have "
-            "not.")
+                  "not.")
         print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
@@ -322,10 +325,10 @@ def main():  # main function
 
 
 print("DISCLAIMER: The developer(s) of this program accept no responsibility "
-"for")
+      "for")
 print("damage caused to your device due to instructions given.")
 print("All advice given SHOULD be helpful and all attempts have been taken to "
-"reduce")
+      "reduce")
 print("likelyhood of damage, but we still take no responsibility.")
 
 
