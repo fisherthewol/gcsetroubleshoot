@@ -21,14 +21,14 @@ dried = False
 def warrantyInsure():  # Is the device insured or under warranty?
     global operSys
     ans = str.lower(str(input("Are you under Warranty or Insured with this "
-    "device?\n>")))
+                              "device?\n>")))
     if (ans == "yes" or ans == "y") and operSys == "steve":
         print("Return your device to Apple or contact your insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "andy":
         print("Return your device to your manufacturer or contact your"
-        " insurer.")
+              " insurer.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     elif (ans == "yes" or ans == "y") and operSys == "gates":
@@ -72,16 +72,16 @@ def backUp():  # Is the device backed up?
     if ans == "yes" or ans == "y":
         print("We suggest you fully reset your device;"),
         if operSys == "steve":
-            print("Plug your Device into your Computer, open itunes and reset i"
-            "t from there.")
+            print("Plug your Device into your Computer, open itunes and reset "
+                  "it from there.")
         elif operSys == "andy":
-            print("Go to settings, scroll and enter Backup and Settings, select"
-            " Factory Data Reset and follow the prompts.")
+            print("Go to settings, scroll and enter Backup and Settings, "
+                  "select Factory Data Reset and follow the prompts.")
         elif operSys == "gates":
-            print("See https://support.microsoft.com/en-us/help/10666/windows-p"
-            "hone-reset-my-phone"),
+            print("See https://support.microsoft.com/en-us/help/10666/"
+                  "windows-phone-reset-my-phone")
             print("Go to Settings, About Phone, select reset phone, and follow"
-            " the prompts.")
+                  " the prompts.")
         else:
             print("Error; somehow deviceOS wasn't called!")
             print("We will now loop this program.")
@@ -90,7 +90,7 @@ def backUp():  # Is the device backed up?
         sys.exit()
     elif ans == "no" or ans == "n":
         print("We recommend you see a phone repair shop, especially a virus"
-        " specialist."),
+              " specialist."),
         print("Thanks for using this program; see you around!")
         sys.exit()
     else:
@@ -100,11 +100,11 @@ def backUp():  # Is the device backed up?
 
 def problemQue():  # Does this device actually have problems?
     ans = str.lower(str(input("Does your device have any (further)"
-    " issues?\n>")))
+                              " issues?\n>")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
-        print("we will now loop you back to the beginning and hope we can solve"
-        " this.")
+        print("we will now loop you back to the beginning and hope we can "
+              "solve this.")
         main()
     elif ans == "no" or ans == "n":
         print("Thanks for using this program; see you around!")
@@ -116,7 +116,7 @@ def problemQue():  # Does this device actually have problems?
 
 def infection():  # Is the device infected?
     ans = str.lower(str(input("Do you think your device is infected with a "
-    "virus?\n>")))
+                              "virus?\n>")))
     if ans == "yes" or ans == "y":
         backUp()
     elif ans == "no" or ans == "n":
@@ -132,7 +132,7 @@ def screenBroke():  # Is the screen broken?
     ans = str.lower(str(input("Is the screen/screen glass broken?\n>")))
     if ans == "yes" or ans == "y":
         warrantyInsure()
-    elif ans =="no" or ans == "n":
+    elif ans == "no" or ans == "n":
         problemQue()
     else:
         print("I did not understand your input, please try again.")
@@ -144,12 +144,12 @@ def isScreenOn():  # Is the screen on?
     ans = str.lower(str(input("Is the screen on?\n>")))
     if (ans == "no" or ans == "n") and (charged == False) and (dried == False):
         print("This presumes your device has been dried or has not come into"
-        " contact with water.")
-        print("If the above is not true, PLEASE dry your device first.")
-        print("Try charging your device with a different charger.")
+              " contact with water.")
+        print("If the above is not true, PLEASE dry your device first.\n\n")
+        print("Try charging your device with a different charger.\n")
         charged = True
         isScreenOn()
-    elif (ans == "no" or ans == "n") and (charged == True) and (dried == False):
+    elif (ans == "no" or ans == "n") and (charged == True):
         warrantyInsure()
     elif (ans == "yes") or (ans == "y") and (dried == True):
         problemQue()
