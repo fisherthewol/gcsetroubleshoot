@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.31
+__version__ = 1.32
 
 # Imports
 
@@ -212,7 +212,7 @@ def connect():  # Connectivity issues?
         else:
             print("Sorry, I did not understand your input.")
             print("Unfortunately, We will have to restart this whole"
-            " question.")
+                  " question.")
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
@@ -226,9 +226,10 @@ def connect():  # Connectivity issues?
 def main():  # Main Function.
     global operSys
     deviceOS()
-    keywords = ("infection","virus","malware","infected","broken","shattered",
-    "smashed","cracked","black","off","charge","dead","isn't on","wifi","4g",
-    "internet","water","wet","toilet","end")
+    keywords = ("infection", "virus", "malware", "infected", "broken",
+                "shattered", "smashed", "cracked", "black", "off", "charge",
+                "dead", "isn't on", "wifi", "4g", "internet", "water", "wet",
+                "toilet", "end")
     ans = str.lower(str(input("Please describe your issue\n>")))
     a = 0
     while keywords[a] not in ans and a < 19:
@@ -258,9 +259,9 @@ def main():  # Main Function.
 
 
 print("DISCLAIMER: The developer(s) of this program accept no responsibility "
-"for")
+      "for")
 print("damage caused to your device due to instructions given.")
 print("All advice given SHOULD be helpful and all attempts have been taken to "
-"reduce")
+      "reduce")
 print("likelyhood of damage, but we still take no responsibility.")
 main()
