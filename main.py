@@ -2,20 +2,35 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.32
+__version__ = 1.47
 
 # Imports
 
 import sys
+import time
 
 # Variables
 
 global charged
 global operSys
 global dried
+global userProb
+global aindex
 charged = False
 operSys = " "
 dried = False
+userProb = " "
+aindex = 0
+
+
+def outPutter(x):  # outputs to file
+    t = time.time()
+    ti = time.strftime("%H:%M")
+    da = time.strftime("%Y%m%d")
+    with open("userprob/{}.txt".format(t), "w+") as f:
+        f.write("LocalTime: {} {}\nOperSys: {}\nUserProblem: {}\n"
+                "IndexReached: {}\nFunctionReached: {}".format(da, ti, operSys,
+                userProb, aindex, x))
 
 
 def warrantyInsure():  # Is the device insured or under warranty?
@@ -103,8 +118,8 @@ def problemQue():  # Does this device actually have problems?
                               " issues?\n>")))
     if ans == "yes" or ans == "y":
         print("Sorry, this program is primitive;"),
-        print("we will now loop you back to the beginning and hope we can "
-              "solve this.")
+        print("we will now loop you back to the beginning and hope we can"
+              " solve this.")
         main()
     elif ans == "no" or ans == "n":
         print("Thanks for using this program; see you around!")
@@ -121,7 +136,17 @@ def infection():  # Is the device infected?
         backUp()
     elif ans == "no" or ans == "n":
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("infection")
+            print("Your issue was written to file a file in the userprob"
+                  " folder.")
+            print("Please send that file to the developers when you get a "
+                  "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+                  "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
@@ -155,8 +180,18 @@ def isScreenOn():  # Is the screen on?
         problemQue()
     elif (ans == "yes") or (ans == "y") and (dried == False):
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
-        sys.exit
+        try:
+            outPutter("isScreenOn")
+            print("Your issue was written to file a file in the userprob"
+                  " folder.")
+            print("Please send that file to the developers when you get a "
+                  "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+                  "not.")
+        print("Thank you for using this program.\nGoodbye now!")
+        sys.exit()
     else:
         print("I did not understand your input, please try again.")
         isScreenOn()
@@ -177,7 +212,17 @@ def deviceWater():  # Is the problem due to water?
         isScreenOn()
     elif ans == "no" or ans == "n":
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("deviceWater")
+            print("Your issue was written to file a file in the userprob"
+                  " folder.")
+            print("Please send that file to the developers when you get a "
+                  "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+                  "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
@@ -187,7 +232,7 @@ def deviceWater():  # Is the problem due to water?
 def deviceOS():  # What OS does the device use/what manufacturer?
     global operSys
     operSys = " "
-    ans = str.lower(str(input("What OS/Maker does your phone use?\n>")))
+    ans = str.lower(str(input("What type/maker of phone do you have?\n>")))
     if ans == "ios" or ans == "apple" or ans == "iphone":
         operSys = "steve"
     elif ans == "samsung" or ans == "android" or ans == "htc" or ans == "lg":
@@ -216,7 +261,17 @@ def connect():  # Connectivity issues?
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+        try:
+            outPutter("connect")
+            print("Your issue was written to file a file in the userprob"
+                  " folder.")
+            print("Please send that file to the developers when you get a "
+                  "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+                  "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("Sorry, I did not understand your input.")
@@ -225,33 +280,44 @@ def connect():  # Connectivity issues?
 
 def main():  # Main Function.
     global operSys
+    global userProb
+    global aindex
     deviceOS()
     keywords = ("infection", "virus", "malware", "infected", "broken",
                 "shattered", "smashed", "cracked", "black", "off", "charge",
                 "dead", "isn't on", "wifi", "4g", "internet", "water", "wet",
                 "toilet", "end")
-    ans = str.lower(str(input("Please describe your issue\n>")))
-    a = 0
-    while keywords[a] not in ans and a < 19:
-        a += 1
-    if a < 4:
+    userProb = str.lower(str(input("Please describe your issue\n>")))
+    aindex = 0
+    while keywords[aindex] not in userProb and aindex < 19:
+        aindex += 1
+    if aindex < 4:
         print("Problem detected: Infection.")
         infection()
-    elif a >= 4 and a < 8:
+    elif aindex >= 4 and aindex < 8:
         print("Problem detected: Broken Screen.")
         screenBroke()
-    elif a >= 8 and a < 13:
+    elif aindex >= 8 and aindex < 13:
         print("Problem detected: Battery/charge issues.")
         isScreenOn()
-    elif a >= 13 and a < 16:
+    elif aindex >= 13 and aindex < 16:
         print("Problem detected: Connectivity.")
         connect()
-    elif a >= 16 and a < 19:
+    elif aindex >= 16 and aindex < 19:
         print("Problem detected: Water.")
         deviceWater()
-    elif a == 19:
-        print("Your issue is currently not interperatable or solvable.")
-        print("This program will now close.")
+    elif aindex == 19:
+        try:
+            outPutter("main")
+            print("Your issue was written to file a file in the userprob"
+                  " folder.")
+            print("Please send that file to the developers when you get a "
+                  "chance.")
+        except:
+            print("Error was encountered while trying to write file.")
+            print("Your issue may have been written to a file, or it may have "
+                  "not.")
+        print("Thank you for using this program.\nGoodbye now!")
         sys.exit
     else:
         print("I did not understand your input, please try again.")
@@ -264,4 +330,6 @@ print("damage caused to your device due to instructions given.")
 print("All advice given SHOULD be helpful and all attempts have been taken to "
       "reduce")
 print("likelyhood of damage, but we still take no responsibility.")
+
+
 main()
