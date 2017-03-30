@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.46
+__version__ = 1.47
 
 # Imports
 
@@ -169,7 +169,7 @@ def isScreenOn():  # Is the screen on?
     ans = str.lower(str(input("Is the screen on?\n>")))
     if (ans == "no" or ans == "n") and (charged == False) and (dried == False):
         print("This presumes your device has been dried or has not come into"
-        " contact with water.")
+              " contact with water.")
         print("If the above is not true, PLEASE dry your device first.")
         print("Try charging your device with a different charger.")
         charged = True
