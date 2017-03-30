@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.47
+__version__ = 1.48
 
 # Imports
 
@@ -85,7 +85,7 @@ def backUp():  # Is the device backed up?
     global operSys
     ans = str.lower(str(input("Have you backed up your device recently?\n>")))
     if ans == "yes" or ans == "y":
-        print("We suggest you fully reset your device;"),
+        print("We suggest you fully reset your device;")
         if operSys == "steve":
             print("Plug your Device into your Computer, open itunes and reset "
                   "it from there.")
@@ -105,7 +105,7 @@ def backUp():  # Is the device backed up?
         sys.exit()
     elif ans == "no" or ans == "n":
         print("We recommend you see a phone repair shop, especially a virus"
-              " specialist."),
+              " specialist.")
         print("Thanks for using this program; see you around!")
         sys.exit()
     else:
@@ -117,7 +117,7 @@ def problemQue():  # Does this device actually have problems?
     ans = str.lower(str(input("Does your device have any (further)"
                               " issues?\n>")))
     if ans == "yes" or ans == "y":
-        print("Sorry, this program is primitive;"),
+        print("Sorry, this program is primitive;")
         print("we will now loop you back to the beginning and hope we can"
               " solve this.")
         main()
@@ -200,12 +200,12 @@ def isScreenOn():  # Is the screen on?
 def deviceWater():  # Is the problem due to water?
     ans = str.lower(str(input("Does your issue involve water?\n>")))
     if ans == "yes" or ans == "y":
-        print("Dry your device!"),
-        print("Take it apart as far as you can"),
-        print("(remove back cover and battery if possible),"),
-        print("gently towel dry the outer of the phone, then"),
-        print("place in rice or (preferably) silica gel for a time."),
-        print("Then, remove from the rice and replace the battery"),
+        print("Dry your device!")
+        print("Take it apart as far as you can")
+        print("(remove back cover and battery if possible),")
+        print("gently towel dry the outer of the phone, then")
+        print("place in rice or (preferably) silica gel for a time.")
+        print("Then, remove from the rice and replace the battery")
         print("and try to turn the device on.")
         global dried
         dried = True
