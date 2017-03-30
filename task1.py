@@ -179,6 +179,3 @@ def deviceOS():  # What OS does the device use/what manufacturer?
     else:
         print("I did not understand your input, please try again.")
         deviceOS()
-
-
-deviceOS()
