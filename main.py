@@ -81,7 +81,7 @@ def warrantyInsure():  # Is the device insured or under warranty?
     sys.exit()
 
 
-def backUp():  # is the device backed up?
+def backUp():  # Is the device backed up?
     global operSys
     ans = str.lower(str(input("Have you backed up your device recently?\n>")))
     if ans == "yes" or ans == "y":
@@ -94,7 +94,7 @@ def backUp():  # is the device backed up?
                   "select Factory Data Reset and follow the prompts.")
         elif operSys == "gates":
             print("See https://support.microsoft.com/en-us/help/10666/"
-                  "windows-phone-reset-my-phone"),
+                  "windows-phone-reset-my-phone")
             print("Go to Settings, About Phone, select reset phone, and follow"
                   " the prompts.")
         else:
@@ -170,8 +170,8 @@ def isScreenOn():  # Is the screen on?
     if (ans == "no" or ans == "n") and (charged == False) and (dried == False):
         print("This presumes your device has been dried or has not come into"
               " contact with water.")
-        print("If the above is not true, PLEASE dry your device first.")
-        print("Try charging your device with a different charger.")
+        print("If the above is not true, PLEASE dry your device first.\n\n")
+        print("Try charging your device with a different charger.\n")
         charged = True
         isScreenOn()
     elif (ans == "no" or ans == "n") and (charged == True):
@@ -256,8 +256,8 @@ def connect():  # Connectivity issues?
             sys.exit()
         else:
             print("Sorry, I did not understand your input.")
-            print("Unfortunately, We will have to restart this whole "
-                  "question.")
+            print("Unfortunately, We will have to restart this whole"
+                  " question.")
             connect()
     elif (ans == "yes" or ans == "y"):
         print("Your issue is currently not interperatable or solvable.")
@@ -278,7 +278,7 @@ def connect():  # Connectivity issues?
         connect()
 
 
-def main():  # main function
+def main():  # Main Function.
     global operSys
     global userProb
     global aindex
