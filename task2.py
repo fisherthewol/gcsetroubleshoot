@@ -224,12 +224,6 @@ def connect():  # Connectivity issues?
 
 
 def main():  # main function.
-    print("DISCLAIMER: The developer(s) of this program accept no "
-          "responsibility for")
-    print("damage caused to your device due to instructions given.")
-    print("All advice given SHOULD be helpful and all attempts have been "
-          "taken to reduce")
-    print("likelyhood of damage, but we still take no responsibility.")
     global operSys
     deviceOS()
     keywords = ("infection", "virus", "malware", "infected", "broken",
