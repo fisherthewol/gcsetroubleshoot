@@ -1,6 +1,8 @@
 # gcsetroubleshoot
 Troubleshooting program for GCSE A453.
 Please don't copy; It'll either be awful or good, but it'll still get you done for cheating.
+
+
 ## Task 1
 Task 1
 When a customer has a problem with a product, automated troubleshooting programs are available to
@@ -41,3 +43,44 @@ a mobile device from a selection stored in a text file or database. You will nee
 keywords that can be linked to general advice related problems. You need to account for variations in
 the form of the user input e.g. one user may query ‘There is no display on my mobile phone’, another
 user may query ‘My phone screen is blank.’
+
+## Task 3
+Task 3
+Troubleshooting systems need to identify the device and load the correct troubleshooting routine before
+analysing the problem.
+For example, initialising the troubleshooting routine may require this conversation:
+
+> System: ‘What type of device?’
+
+> User: ‘Phone’
+
+> System: ‘Which make of phone is it?’
+
+> User: ‘IPhone’
+
+> System: ‘Which model of phone is it?’
+
+> User: ‘IPhone5’
+
+> System: ‘Which version, S or C?’
+
+> User: ‘S’
+
+> System: ‘How much memory, 8GB, 16GB or 32GB?’
+
+> User: ‘16’
+
+> System: ‘What is the problem?’
+
+> User: ‘There is no display!’
+
+> ….
+
+
+If no solution is found, the data is allocated a case number and stored to be sent to a technician.
+Analyse the requirements for this system and design, develop, test and evaluate a program to provide
+troubleshooting advice for several devices. The system should identify the device and load a file of
+suitable questions and responses for that device. You will need to create two files to test the system,
+for third or subsequent devices it is acceptable to show that they have been recognised with a simple
+acknowledgement. This is a demonstration version of the system and need not deal with all potential
+problems.
