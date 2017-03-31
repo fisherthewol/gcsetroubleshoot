@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.48
+__version__ = 1.49
 
 # Imports
 
@@ -322,14 +322,3 @@ def main():  # Main Function.
     else:
         print("I did not understand your input, please try again.")
         main()
-
-
-print("DISCLAIMER: The developer(s) of this program accept no responsibility "
-      "for")
-print("damage caused to your device due to instructions given.")
-print("All advice given SHOULD be helpful and all attempts have been taken to "
-      "reduce")
-print("likelyhood of damage, but we still take no responsibility.")
-
-
-main()
