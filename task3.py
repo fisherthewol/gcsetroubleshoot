@@ -2,7 +2,7 @@ __author__ = "George Kokinis"
 __maintainer__ = "George Kokinis"
 __email__ = "george.kokinis@gmail.com, gkokinis@kes.sheffield.sch.uk"
 __status__ = "Release"
-__version__ = 1.50
+__version__ = 1.51
 
 # Imports
 
@@ -138,7 +138,7 @@ def infection():  # Is the device infected?
         print("Your issue is currently not interperatable or solvable.")
         try:
             outPutter("infection")
-            print("Your issue was written to file a file in the userprob"
+            print("Your issue was written to a file in the userprob"
                   " folder.")
             print("Please send that file to the developers when you get a "
                   "chance.")
@@ -182,7 +182,7 @@ def isScreenOn():  # Is the screen on?
         print("Your issue is currently not interperatable or solvable.")
         try:
             outPutter("isScreenOn")
-            print("Your issue was written to file a file in the userprob"
+            print("Your issue was written to a file in the userprob"
                   " folder.")
             print("Please send that file to the developers when you get a "
                   "chance.")
@@ -214,7 +214,7 @@ def deviceWater():  # Is the problem due to water?
         print("Your issue is currently not interperatable or solvable.")
         try:
             outPutter("deviceWater")
-            print("Your issue was written to file a file in the userprob"
+            print("Your issue was written to a file in the userprob"
                   " folder.")
             print("Please send that file to the developers when you get a "
                   "chance.")
@@ -263,7 +263,7 @@ def connect():  # Connectivity issues?
         print("Your issue is currently not interperatable or solvable.")
         try:
             outPutter("connect")
-            print("Your issue was written to file a file in the userprob"
+            print("Your issue was written to a file in the userprob"
                   " folder.")
             print("Please send that file to the developers when you get a "
                   "chance.")
@@ -309,7 +309,7 @@ def main():  # Main Function.
     elif aindex == 19:
         try:
             outPutter("main")
-            print("Your issue was written to file a file in the userprob"
+            print("Your issue was written to a file in the userprob"
                   " folder.")
             print("Please send that file to the developers when you get a "
                   "chance.")
